@@ -1,0 +1,20 @@
+# open ordered files from other folder with gimp
+
+function batch_gimp() {
+    k="$1"
+
+    loc="work/${(l:2::0:)k}.png"
+    out="${loc%%.png}.xcf"
+
+    echo $loc " " $out
+
+
+    if [[ ! -a "$loc" ]] && [[ ! -a "$out" ]]; then
+        f="$(echo orig/*.png([$k]))"
+        cp "$f" "$loc"
+        out="$loc"
+    fi
+
+    gimp "$out" &
+}
+

@@ -1,0 +1,16 @@
+# Start external display using nvidia optimus
+# 
+# I know I work for them and all, but FUCK nvidia optimus
+
+function dsp_start() {
+    #dsp_stop
+    (_ex_X_kill) &>/dev/null
+    intel-virtual-output
+    screen=$(_find_ex)
+    if [ -z $1 ] || [ $1 = 'mirror' ] || [ $1 = 'mirrored' ]; then
+        xrandr --output ${screen} --auto --same-as LVDS1;
+    else
+        xrandr --output ${screen} --auto --${1}-of LVDS1;
+    fi
+    (dsp_redshift &) &>/dev/null
+}

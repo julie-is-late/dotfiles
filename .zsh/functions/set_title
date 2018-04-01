@@ -1,0 +1,7 @@
+# set the window title in tmux
+
+function set_title() {
+    # TODO: maybe fix this to use `tmux rename-window -t${TMUX_PANE} "$@"` instead
+    #       would need to make sure it is properly inside a zsh session first though
+    printf "\033k${@}\033\\"
+}

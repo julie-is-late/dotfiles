@@ -1,0 +1,12 @@
+# sync file changes in $1 directory to $2 host
+# super jank, don't put spaces in $2
+
+dir=$1
+host=$2
+
+rsync -nvrca {,$host:}$dir/ | \
+    head -n-3 | \
+    tail -n+2 | \
+    grep -v -E "/$" | \
+    xargs -i -- bash -c '</dev/tty vimdiff '$dir'/{} scp://'$host'/'$dir'/{}'
+

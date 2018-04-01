@@ -1,0 +1,5 @@
+# get the current window title from tmux
+
+function get_title() {
+    tmux list-windows | awk '$NF ~ /active/ {gsub(/\*/, ""); print $2}'
+}

@@ -1,0 +1,11 @@
+# Move a file and link to it's new place from it's previous location
+
+function relocate() {
+    original="$1" target="$2"
+    if [ -d "$target" ]; then
+        target="$target/${original##*/}"
+    fi
+    mv -- "$original" "$target"
+    ln -s -- "$target" "$original"
+
+}

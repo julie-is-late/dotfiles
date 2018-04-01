@@ -1,0 +1,6 @@
+# Util funciton for using an external display w/ nvidia optimus
+
+# Find the external displays
+function _find_ex() {
+    echo $(xrandr -q | awk '/ connected/ && !/primary/ { print $1; exit }')
+}

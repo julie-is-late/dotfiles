@@ -1,0 +1,8 @@
+# Like darwin's open command, open something using the registered program based on file extension
+
+open_command () {
+    emulate -L zsh
+    setopt shwordsplit
+    nohup xdg-open "$@" &> /dev/null
+}
+

@@ -1,0 +1,6 @@
+# Util funciton for using an external display w/ nvidia optimus
+
+# kill X:9
+function _ex_X_kill() {
+    sudo kill $(ps aux | awk '/Xorg/ && /:9/ && /root/ && !/awk/ { print $2 }' ) || echo "failed to kill X"; return 1
+}

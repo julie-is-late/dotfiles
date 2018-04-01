@@ -1,0 +1,51 @@
+# jshap's not-so-standard .aliases
+
+# -----------------------------------------
+# control-flow aliases
+
+# resource
+alias reload='source ~/.zshrc'
+
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -lha'
+
+# -----------------------------------------
+# environment stuff
+
+# vim masterrace
+alias vi="vim"
+
+# zsh mv'ing
+alias mmv='noglob zmv -W'
+
+
+# -----------------------------------------
+# misc
+
+# because I can't type properly
+eval $(thefuck --alias)
+alias spellcheck="aspell check "
+
+# dictionary?
+alias def="/usr/bin/sdcv --color --utf8-output --utf8-input"
+# (I didn't realize i had so much language stuff)
+
+# get current ip
+alias ipget="ifconfig | grep 'inet\s' | awk '{print \$2}'"
+
+# pwgen is gr8
+alias pass="pwgen -0A"
+
+# vscode is gr8
+alias vscode='code '
+
+# probably not needed
+alias open='open_command '
+
+
+# -----------------------------------------
+# useless
+
+alias manga_batch="batch_gimp"
+

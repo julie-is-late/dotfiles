@@ -1,0 +1,5 @@
+# speak into the void
+
+function say() {
+    echo "irc.bounce.#reddit-manga *${@}" > ~/.weechat/weechat_fifo
+}
