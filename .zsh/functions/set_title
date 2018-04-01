@@ -1,3 +1,4 @@
+#!/bin/zsh
 # set the window title in tmux
 
 function set_title() {

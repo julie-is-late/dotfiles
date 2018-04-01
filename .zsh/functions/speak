@@ -1,3 +1,4 @@
+#!/bin/zsh
 # speak into the void
 
 function say() {

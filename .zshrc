@@ -1,3 +1,4 @@
+#!/bin/zsh
 # jshap's not-so-standard .zshrc
 
 

@@ -1,3 +1,4 @@
+#!/bin/zsh
 # jshap's arch linux box's custom zshrc
 
 # misc completion

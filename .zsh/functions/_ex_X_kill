@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Util funciton for using an external display w/ nvidia optimus
 
 # kill X:9

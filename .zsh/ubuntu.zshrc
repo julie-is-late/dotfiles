@@ -1,3 +1,4 @@
+#!/bin/zsh
 # jshap's ubuntu custom zshrc
 
 ### distro specific

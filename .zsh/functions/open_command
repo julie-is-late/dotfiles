@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Like darwin's open command, open something using the registered program based on file extension
 
 open_command () {

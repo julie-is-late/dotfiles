@@ -1,3 +1,4 @@
+#!/bin/zsh
 # get the current window title from tmux
 
 function get_title() {

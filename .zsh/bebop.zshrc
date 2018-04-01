@@ -1,4 +1,5 @@
-# jshap's bebop custom zshrc
+#!/bin/zsh
+## jshap's bebop custom zshrc
 
 if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh

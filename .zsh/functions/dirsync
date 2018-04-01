@@ -1,3 +1,4 @@
+#!/bin/zsh
 # sync file changes in $1 directory to $2 host
 # super jank, don't put spaces in $2
 

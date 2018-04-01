@@ -1,5 +1,6 @@
+#!/bin/zsh
 # Start external display using nvidia optimus
-# 
+#
 # I know I work for them and all, but FUCK nvidia optimus
 
 function dsp_start() {

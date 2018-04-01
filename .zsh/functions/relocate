@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Move a file and link to it's new place from it's previous location
 
 function relocate() {

@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Start redshift on the external display using nvidia optimus
 
 function dsp_redshift() {

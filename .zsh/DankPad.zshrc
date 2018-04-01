@@ -1,3 +1,4 @@
+#!/bin/zsh
 # jshap's DankPad custom zshrc
 
 
