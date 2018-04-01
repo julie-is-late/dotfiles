@@ -18,3 +18,6 @@ export ZPLUG_THREADS=2
 #[[ $TERM = "screen-256color-italic" ]] && export TERM="xterm-256color"
 [[ $TERM = "xterm" ]] && export TERM="xterm-256color"
 [[ $SHELL = "/bin/bash" ]] && export SHELL="/usr/bin/zsh"
+
+# build tool gems need to be in path
+export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
