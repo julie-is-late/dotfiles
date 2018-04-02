@@ -50,6 +50,9 @@ Plug 'pboettch/vim-cmake-syntax'
 
 call plug#end()
 
+
+""" looks
+
 set background=dark
 
 " set colo for 256-term
@@ -79,8 +82,17 @@ if has("gui_running")
     let g:neosolarized_italic = 1
 
     colo NeoSolarized
+elseif &term =~ "^xterm\\|rxvt"
+    " vertical bar for insert
+    let &t_SI .= "\<Esc>[5 q"
+    " normal blink when leaving
+    let &t_EI .= "\<Esc>[1 q"
 endif
 
+
+""" misc settings
+
+" completion keybinding
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Turn on line numbering. Turn it off with "set nonu"
