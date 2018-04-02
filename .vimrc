@@ -68,6 +68,7 @@ endif
 
 " set colo & font for gvim
 if has("gui_running")
+    " fonts
     if has('macunix')
         set guifont=Menlo\ Regular:h14
     elseif has('unix')
@@ -77,6 +78,12 @@ if has("gui_running")
     elseif has('win32')
         set guifont=Consolas:h9:cANSI
     endif
+
+    " window
+    set lines=44
+    set columns=120
+
+    " colorz
     let g:neosolarized_bold = 1
     let g:neosolarized_underline = 1
     let g:neosolarized_italic = 1
