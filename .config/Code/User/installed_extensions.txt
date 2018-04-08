@@ -1,4 +1,9 @@
+eg2.tslint
+kriegalex.vscode-cudacpp
 luggage66.AWK
 ms-python.python
 ms-vscode.cpptools
+slevesque.vscode-hexdump
+streetsidesoftware.code-spell-checker
+twxs.cmake
 vscodevim.vim
