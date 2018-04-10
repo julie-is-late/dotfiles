@@ -16,6 +16,8 @@ function pacaur() {
 compdef mosh=ssh
 compdef _tmux tmux-next
 
+export PATH=$PATH:$HOME/.zsh/functions
+
 export P4DIFF="colordiff -u"
 export P4MERGE=vimdiff
 
