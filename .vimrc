@@ -89,7 +89,7 @@ if has("gui_running")
     let g:neosolarized_italic = 1
 
     colo NeoSolarized
-elseif &term =~ "^xterm\\|rxvt"
+elseif &term =~ "^xterm\\|rxvt\\|tmux"
     " vertical bar for insert
     let &t_SI .= "\<Esc>[5 q"
     " normal blink when leaving
