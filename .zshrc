@@ -17,7 +17,8 @@ source ~/.zplug/init.zsh
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # bundles from oh-my-zsh
-# other useful: archlinux golang gradle colored-man-pages command-not-found docker thefuck pip git
+# other useful: archlinux golang gradle colored-man-pages command-not-found
+#               docker thefuck pip git
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "robbyrussell/oh-my-zsh", \
     use:"lib/key-bindings.zsh"
@@ -60,16 +61,17 @@ unsetopt beep
 
 setopt completealiases          # complete alisases
 setopt complete_in_word         # allow completion from within a word/phrase
-setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
+setopt list_ambiguous           # complete as much as it can until ambiguous
 setopt auto_cd                  # auto cd when dir is given w/ no command
 
-# turn off ctrl+s freezing, ctrl+q unfreezing
-setopt noflowcontrol
-stty -ixon -ixoff 2>/dev/null # really, no flow control.
+setopt noflowcontrol          # turn off ctrl+s freezing, ctrl+q unfreezing
+stty -ixon -ixoff 2>/dev/null # no, really, please no flow control
 
-#setopt hash_list_all            # hash everything before completion
-#setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
-#setopt correct                  # spelling correction for commands
+# TODO: clean this section up/decide what's trash
+
+#setopt hash_list_all    # hash everything before completion
+#setopt always_to_end    # when compl. from middle of word, move cursor to end
+#setopt correct          # spelling correction for commands
 
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'

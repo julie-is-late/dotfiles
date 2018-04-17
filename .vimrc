@@ -12,7 +12,8 @@ if empty(glob(autoload_dir."/plug.vim"))
     if !isdirectory(autoload_dir)
         call mkdir(autoload_dir, "p")
     endif
-    execute '!curl -fLo '.autoload_dir.'/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    execute '!curl -fLo '.autoload_dir.'/plug.vim '
+                \ .'https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 let color_match = matchstr(&term, '\c256')
@@ -219,7 +220,7 @@ augroup vimrc
     au BufNewFile,BufRead make.inc set ft=make
 augroup END
 
-" screen/tmux hax for configuration missmatch between wsl lappy and dev machines
+" screen/tmux hax for configuration missmatch on wsl lappy
 if &term =~ '^tmux'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
