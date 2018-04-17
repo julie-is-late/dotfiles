@@ -20,8 +20,8 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 # other useful: archlinux golang gradle colored-man-pages command-not-found
 #               docker thefuck pip git
 zplug "plugins/ssh-agent", from:oh-my-zsh
-zplug "robbyrussell/oh-my-zsh", \
-    use:"lib/key-bindings.zsh"
+zplug "lib/key-bindings", \
+    from:oh-my-zsh
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
     as:command, \
