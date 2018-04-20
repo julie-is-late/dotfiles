@@ -6,9 +6,11 @@ dir1=$1
 dir2=$2
 host=$3
 
+echo "\`:cq\` to halt xargs"
+
 rsync -nvrca $dir1/ $host:$dir2/ | \
     head -n-3 | \
     tail -n+2 | \
     grep -v -E "/$" | \
-    xargs -i -- bash -c '</dev/tty vimdiff "'$dir1'/{}" "rsync://'$host'/'$dir2'/{}"'
+    xargs -i -- bash -c '</dev/tty vimdiff "'$dir1'/{}" "rsync://'$host'/'$dir2'/{}" || exit 255'
 
