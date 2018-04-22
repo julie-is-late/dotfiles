@@ -6,3 +6,6 @@ if [[ $TERM == xterm-termite ]]; then
   __vte_osc7
   export TERM=xterm-256color
 fi
+
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown'
