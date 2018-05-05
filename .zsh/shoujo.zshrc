@@ -1,5 +1,5 @@
 #!/bin/zsh
-# jshap's bebop custom zshrc
+# jshap's shoujo custom zshrc
 
 if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
@@ -7,3 +7,5 @@ if [[ $TERM == xterm-termite ]]; then
   export TERM=xterm-256color
 fi
 
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown'

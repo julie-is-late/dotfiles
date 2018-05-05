@@ -243,7 +243,7 @@ endif
 
 """ misc workarounds
 " can't turn off the bell sound in mintty or native wsl ;_;
-set t_vb=
+set noerrorbells visualbell t_vb=
 
 " backspace wasn't working for some reason
 if has('win32')
