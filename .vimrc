@@ -34,7 +34,7 @@ endif
 " NOTE: to get 24-bit color in tmux, you must have the following in your
 " tmux.conf, as well as ensuring $TERM is set to either `screen-256color' or
 " `tmux-256color' based on your setup's support:
-" set -ga terminal-overrides ",xterm-256color:Tc"
+" set -ga terminal-overrides ",xterm-256color:Tc,tmux-256color:Tc"
 
 call plug#begin('~/.vim/plugged')
 
