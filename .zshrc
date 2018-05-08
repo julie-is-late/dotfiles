@@ -59,6 +59,8 @@ setopt appendhistory
 
 unsetopt beep
 
+setopt INTERACTIVE_COMMENTS     # allow in-repl comments starting w/ #
+
 setopt completealiases          # complete alisases
 setopt complete_in_word         # allow completion from within a word/phrase
 setopt list_ambiguous           # complete as much as it can until ambiguous
