@@ -2,13 +2,13 @@
 # sync file changes in $1 directory to $2 host
 # super jank, don't put spaces in $2
 
-dir1=$1
-dir2=$2
-host=$3
+dir1=$1 && shift
+dir2=$1 && shift
+host=$1 && shift
 
 echo "\`:cq\` to halt xargs"
 
-rsync -nvrca $dir1/ $host:$dir2/ | \
+rsync -nvrca $dir1/ $host:$dir2/ $@ | \
     head -n-3 | \
     tail -n+2 | \
     grep -v -E "/$" | \
