@@ -248,4 +248,5 @@ set noerrorbells visualbell t_vb=
 " backspace wasn't working for some reason
 if has('win32')
     set backspace=2
+    set clipboard=unnamed
 endif
