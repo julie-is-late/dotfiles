@@ -138,6 +138,10 @@ set splitright " Vsplits open on the right instead of the left
 " Wrap text instead of being on one line
 set lbr
 
+" Unix line endings are definitively better. fight me.
+set fileformat=unix
+set fileformats=unix,dos
+
 " Spellcheck, because I'm a horrible speller
 " set spell spelllang=en_us
 
