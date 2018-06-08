@@ -109,6 +109,9 @@ set number
 " set cuc
 " hi CursorColumn guibg=#3a3a3a
 
+" allow inserting past end of line, like `a`
+set virtualedit=onemore
+
 " Turn on column coloring at 80 and 120
 set colorcolumn=80,120
 
