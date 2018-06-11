@@ -39,12 +39,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/seoul256.vim'
+"Plug 'junegunn/seoul256.vim'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
 Plug 'iCyMind/NeoSolarized'
 "Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
+Plug 'airblade/vim-gitgutter'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'pboettch/vim-cmake-syntax'
@@ -102,6 +103,9 @@ endif
 
 " completion keybinding
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" turn off git gutter by default
+let g:gitgutter_enabled = 0
 
 " Turn on line numbering. Turn it off with "set nonu"
 set number
