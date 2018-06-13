@@ -98,14 +98,16 @@ elseif &term =~ "^xterm\\|rxvt\\|tmux"
     let &t_EI .= "\<Esc>[1 q"
 endif
 
+" Remove gvim toolbar b/c it's ugly
+set guioptions-=T
 
 """ misc settings
 
 " completion keybinding
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" turn off git gutter by default
-let g:gitgutter_enabled = 0
+" turn on git gutter by default
+let g:gitgutter_enabled = 1
 
 " Turn on line numbering. Turn it off with "set nonu"
 set number
