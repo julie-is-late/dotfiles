@@ -22,6 +22,7 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "lib/key-bindings", \
     from:oh-my-zsh
+[ -x "$(command -v fzf)" ] && [[ "$(command -v fzf)" != $ZPLUG_BIN* ]] || \
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
     as:command, \
