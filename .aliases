@@ -24,7 +24,7 @@ alias mmv='noglob zmv -W'
 # misc
 
 # because I can't type properly
-eval $(thefuck --alias)
+[ -x "$(command -v thefuck)" ] && eval $(thefuck --alias)
 alias spellcheck="aspell check "
 
 # dictionary?
