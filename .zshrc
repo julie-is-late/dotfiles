@@ -13,7 +13,7 @@ fi
 
 # load zplug
 source ~/.zplug/init.zsh
-# manage yourself 
+# manage yourself
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # bundles from oh-my-zsh
@@ -92,7 +92,7 @@ autoload -U zmv
 autoload -U select-word-style
 select-word-style bash
 
-export PATH=$PATH:~/.zplug/bin
+export PATH=$PATH:$ZPLUG_BIN
 
 # load zplug @ the end
 
