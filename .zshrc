@@ -39,6 +39,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # and my theme
 zplug "mafredri/zsh-async", use:"async.zsh"
 zplug "jshap70/pure", use:"pure.zsh", as:theme
+#zplug "~/dev/pure/", from:local, use:"pure.zsh"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
