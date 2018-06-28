@@ -94,6 +94,8 @@ if has("gui_running")
 elseif &term =~ "^xterm\\|rxvt\\|tmux"
     " vertical bar for insert
     let &t_SI .= "\<Esc>[5 q"
+    " underline for replace
+    let &t_SR .= "\<Esc>[3 q"
     " normal blink when leaving
     let &t_EI .= "\<Esc>[1 q"
 endif
