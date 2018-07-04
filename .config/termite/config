@@ -6,9 +6,9 @@
 #font = Consolas 9
 font = monospace
 #fullscreen = true
-geometry = 640x480
+geometry = 640x470
 #icon_name = terminal
-#mouse_autohide = false
+mouse_autohide = true
 #scroll_on_output = false
 #scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
