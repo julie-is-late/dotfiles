@@ -4,7 +4,8 @@
 ### machine specific
 
 export P4USER=jshapiro
-export P4PORT=p4sw.nvidia.com:2006
+#export P4PORT=p4sw.nvidia.com:2006
+export P4PORT=p4proxy-austin.nvidia.com:2006
 export P4CLIENT=jshapiro-lap-vi
 
 #sync weechat
