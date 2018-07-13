@@ -18,6 +18,9 @@ compdef _tmux tmux-next
 
 export PATH=$PATH:$HOME/.zsh/functions
 
+export CUDA_CACHE_DISABLE=1
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+
 export P4DIFF="colordiff -u"
 export P4MERGE=vimdiff
 
