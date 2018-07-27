@@ -8,7 +8,7 @@ compdef downgrade
 alias steam="steam-native"
 
 # use trizen plox
-alias pacaur="echo 'use trizen'; sleep 30; pacaur -Syu"
+alias pacaur="echo 'use yay'; sleep 30; pacaur -Syu"
 
 # make gpg headless compatible
 export GPG_TTY=$(tty)

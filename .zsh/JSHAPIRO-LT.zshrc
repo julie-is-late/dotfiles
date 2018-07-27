@@ -8,6 +8,8 @@ export P4USER=jshapiro
 export P4PORT=p4proxy-austin.nvidia.com:2006
 export P4CLIENT=jshapiro-lap-vi
 
+export PURE_PROMPT_NO_FETCH="its slow"
+
 #sync weechat
 # sort -m -u logs/irc.マンガ.\#reddit-manga.weechatlog <(ssh shapirjr@192.168.0.4 cat \~/.weechat/logs/irc.マンガ.\#reddit-manga.weechatlog)> /tmp/kk
 
