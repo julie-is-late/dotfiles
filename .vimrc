@@ -76,7 +76,7 @@ if has("gui_running")
     elseif has('unix')
         " fun fact: on mac, `has('unix')` returns true.
         " so we must check for mac first, then for *nix
-        set guifont=Consolas\ 9
+        set guifont=Consolas
     elseif has('win32')
         set guifont=Consolas:h9:cANSI
     endif

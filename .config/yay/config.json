@@ -1,5 +1,5 @@
 {
-	"buildDir": "/home/jshap/.cache/yay",
+	"buildDir": ".cache/yay",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",
