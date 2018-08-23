@@ -19,7 +19,6 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 # bundles from oh-my-zsh
 # other useful: archlinux golang gradle colored-man-pages command-not-found
 #               docker thefuck pip git
-zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "lib/key-bindings", \
     from:oh-my-zsh
 [ -x "$(command -v fzf)" ] && [[ "$(command -v fzf)" != $ZPLUG_BIN* ]] || \
@@ -40,6 +39,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "mafredri/zsh-async", use:"async.zsh"
 zplug "jshap70/pure", use:"pure.zsh", as:theme
 #zplug "~/dev/pure/", from:local, use:"pure.zsh"
+zplug "plugins/ssh-agent", from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
