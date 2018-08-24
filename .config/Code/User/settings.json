@@ -264,5 +264,7 @@
     "update.channel": "none",
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
     "C_Cpp.clang_format_path": "/usr/bin/clang-format",
-    "perforce.annotate.changelist": true
+    "perforce.annotate.changelist": true,
+    "editor.minimap.showSlider": "always",
+    "git.ignoredRepositories": [ "/home/jshapiro", "/home/jshap" ]
 }
