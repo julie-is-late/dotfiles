@@ -1,0 +1,5 @@
+# query the current vs the installed kernel to see if an update is needed
+
+
+pacman -Q linux
+uname -a | awk '{print $1" "$3}'
