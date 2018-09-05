@@ -13,9 +13,9 @@ export P4DIFF="diff --color -u"
 export P4MERGE=vimdiff
 export P4IGNORE=$HOME/.p4ignore;
 
-#export PATH=$PATH:~/d/sw/main/apps/p4review
-alias p4review='~/d/sw/main/apps/p4review/p4review.pl'
-alias p4rmerge='~/d/sw/main/apps/p4review/p4rmerge.pl'
+alias p4review='~/p4/sw/main/apps/p4review/p4review.pl'
+alias p4rmerge='~/p4/sw/main/apps/p4review/p4rmerge.pl'
+alias vrlsubmit='~/p4/sw/automation/srl/vrlsubmit/vrlsubmit'
 
 # build tool gems need to be in path
 #export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
