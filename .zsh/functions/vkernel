@@ -1,5 +1,10 @@
 # query the current vs the installed kernel to see if an update is needed
 
+pac_v="$(pacman -Q linux | awk '{print $2}')"
+inst_v="$(uname -r | sed 's/-ARCH$//')"
+if [[ "$pac_v" != "$inst_v" ]]; then
+    echo "active:" $inst_v
+    echo "pacman:" $pac_v
+    return 1
+fi
 
-pacman -Q linux
-uname -a | awk '{print $1" "$3}'
