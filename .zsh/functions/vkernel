@@ -1,10 +1,12 @@
 # query the current vs the installed kernel to see if an update is needed
 
-pac_v="$(pacman -Q linux | awk '{print $2}')"
-inst_v="$(uname -r | sed 's/-ARCH$//')"
-if [[ "$pac_v" != "$inst_v" ]]; then
-    echo "active:" $inst_v
-    echo "pacman:" $pac_v
+#pac_v="$(pacman -Q linux | awk '{print $2}')"
+boot_v="$(file -b /boot/vmlinuz-linux | awk 'f{print;f=0} /version/{f=1}' RS=' ')"
+#inst_v="$(uname -r | sed 's/-ARCH$//')"
+inst_v="$(uname -r)"
+if [[ "$boot_v" != "$inst_v" ]]; then
+    echo " active:" $inst_v
+    echo "vmlinuz:" $boot_v
     return 1
 fi
 
