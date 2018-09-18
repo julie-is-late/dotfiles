@@ -8,6 +8,8 @@ export EDITOR="vim"
 # specify directory colors
 #eval $(dircolors -b ~/.dir_colors)
 
+# don't ring the bell at EOF in less. it's annoying.
+export LESS="$LESS -eFRXQ"
 
 # -----------------------------------------
 # path
@@ -54,5 +56,4 @@ fi
 
 # GTK - https://wiki.archlinux.org/index.php/GTK%2B#Suppress_warning_about_accessibility_bus
 export NO_AT_BRIDGE=1
-
 
