@@ -1,9 +1,7 @@
-eg2.tslint
 kriegalex.vscode-cudacpp
 luggage66.AWK
 ms-python.python
 ms-vscode.cpptools
 slevesque.vscode-hexdump
-streetsidesoftware.code-spell-checker
-twxs.cmake
+vector-of-bool.vscode-cmake-tools
 vscodevim.vim
