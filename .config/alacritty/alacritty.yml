@@ -352,11 +352,13 @@ key_bindings:
   - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                   }
   - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
   - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
+  - { key: Up,       mods: Control|Shift,    chars: "\x1b[1;6A"          }
   - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                   }
   - { key: Down,     mods: Control, chars: "\x1b[1;5B"                   }
   - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                   }
   - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
   - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
+  - { key: Down,     mods: Control|Shift,    chars: "\x1b[1;6B"          }
   - { key: F1,                      chars: "\x1bOP"                      }
   - { key: F2,                      chars: "\x1bOQ"                      }
   - { key: F3,                      chars: "\x1bOR"                      }
