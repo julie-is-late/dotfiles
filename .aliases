@@ -4,7 +4,7 @@
 # control-flow aliases
 
 # resource
-alias reload='source ~/.zshrc'
+alias reload='exec $0'
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
