@@ -116,6 +116,8 @@ set number
 " set relativenumber
 " set cuc
 " hi CursorColumn guibg=#3a3a3a
+" set cul
+" hi CursorLine guibg=#3a3a3a
 
 " allow inserting past end of line, like `a`
 set virtualedit=onemore
@@ -155,9 +157,6 @@ set fileformats=unix,dos
 
 " Spellcheck, because I'm a horrible speller
 " set spell spelllang=en_us
-
-" Change colorscheme from default to delek
-" colorscheme delek
 
 " set indent rules
 filetype plugin indent on

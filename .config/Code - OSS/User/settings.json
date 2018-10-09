@@ -120,5 +120,8 @@
     "vim.cursorStylePerMode.replace": "underline",
     "vim.cursorStylePerMode.visual": "block-outline",
     "vim.cursorStylePerMode.visualblock": "block-outline",
-    "vim.cursorStylePerMode.visualline": "block-outline"
+    "vim.cursorStylePerMode.visualline": "block-outline",
+    "perforce.client": "jshapiro-lap-vi",
+    "perforce.port": "p4proxy-austin.nvidia.com:2006",
+    "perforce.user": "jshapiro"
 }
