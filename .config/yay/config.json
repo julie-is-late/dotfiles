@@ -8,7 +8,7 @@
 	"tarbin": "bsdtar",
 	"redownload": "no",
 	"rebuild": "no",
-	"answerclean": "N",
+	"answerclean": "",
 	"answerdiff": "",
 	"answeredit": "",
 	"answerupgrade": "",
