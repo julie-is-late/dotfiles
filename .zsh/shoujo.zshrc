@@ -9,3 +9,5 @@ fi
 
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown'
+
+alias reboot_to_windows='sudo efibootmgr --bootnext 0000 && reboot'
