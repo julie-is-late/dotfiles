@@ -5,7 +5,7 @@
 
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown'
-alias tmux=tmux-next
+[ -x "$(command -v tmux-next)" ] && alias tmux=tmux-next
 
 function pacaur() {
     sudo apt update
