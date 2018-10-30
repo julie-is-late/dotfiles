@@ -7,7 +7,4 @@ if [[ $TERM == xterm-termite ]]; then
   export TERM=xterm-256color
 fi
 
-alias reboot='sudo reboot'
-alias shutdown='sudo shutdown'
-
 alias reboot_to_windows='sudo efibootmgr --bootnext 0000 && reboot'

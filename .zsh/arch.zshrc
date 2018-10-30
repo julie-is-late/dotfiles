@@ -13,3 +13,7 @@ alias pacaur="echo 'use yay'; sleep 30; pacaur -Syu"
 # make gpg headless compatible
 export GPG_TTY=$(tty)
 
+if [[ -n $SSH_CLIENT ]]; then
+    alias reboot='sudo reboot'
+    alias shutdown='sudo shutdown'
+fi
