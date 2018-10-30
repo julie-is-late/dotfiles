@@ -39,7 +39,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "mafredri/zsh-async", use:"async.zsh"
 zplug "jshap70/pure", use:"pure.zsh", as:theme
 #zplug "~/dev/pure/", from:local, use:"pure.zsh"
-[ -f .ssh/id_rsa*(NY1) ] && zplug "plugins/ssh-agent", from:oh-my-zsh
+local keyfile=(.ssh/id_rsa*(NY1))
+[[ -n $keyfile ]] && zplug "plugins/ssh-agent", from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
