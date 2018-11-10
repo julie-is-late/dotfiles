@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Weechat
+Categories=Application
+GenericName=IRC Client
+Exec=/usr/bin/weechat %u
+Terminal=true
+Type=Application
+MimeType=text/html;x-scheme-handler/irc;x-scheme-handler/ircs;
+Categories=Network;
+Hidden=false
+NoDisplay=false
+Comment=
+Icon=weechat
