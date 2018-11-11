@@ -4,7 +4,11 @@
 # control-flow aliases
 
 # resource
-alias reload='exec $0'
+if [ -x "$(command -v -- $SHELL)" ]; then
+    alias reload="exec $SHELL"
+else
+    alias reload='exec zsh'
+fi
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
