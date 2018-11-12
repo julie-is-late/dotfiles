@@ -111,8 +111,8 @@ fpath=(
     ~/.zsh/completion
     "${fpath[@]}"
 )
-for function in ~/.zsh/functions/*; do autoload -Uz $function ; done
-for function in ~/.zsh/completion/*; do autoload -Uz $function ; done
+[[ -d ~/.zsh/functions ]] && for function in ~/.zsh/functions/*; do autoload -Uz $function ; done
+[[ -d ~/.zsh/completion ]] && for function in ~/.zsh/completion/*; do autoload -Uz $function ; done
 
 # local distro/machine specific config
 local release=$(cat /etc/*release | awk -F'=' '/^ID=/ { print $2 }')
@@ -135,7 +135,7 @@ PURE_PROMPT_SYMBOL=">"
 PURE_PROMPT_COLOR=6
 PURE_CMD_MAX_EXEC_TIME=15
 #PURE_PROMPT_HOST_COLOR=red
-PURE_PROMPT_HOST_COLOR_MAX=7
+PURE_PROMPT_HOST_COLOR_MAX=6
 PURE_PROMPT_HOST_COLOR_MIN=1
 PURE_PROMPT_HOSTNAME="$host"
 
