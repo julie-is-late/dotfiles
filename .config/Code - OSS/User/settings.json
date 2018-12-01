@@ -124,5 +124,6 @@
     "perforce.client": "jshapiro-lap-vi",
     "perforce.port": "p4proxy-austin.nvidia.com:2006",
     "perforce.user": "jshapiro",
-    "workbench.iconTheme": "vs-minimal"
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.activityBar.visible": true
 }
