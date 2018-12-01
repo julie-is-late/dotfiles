@@ -103,7 +103,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 6.0
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -117,12 +117,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
-
-  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
-  # screens and make reading text a little easier.
-  # On X11 it is possible to change the DPI for each instance of alacritty by using
-  # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
-  scale_with_dpi: true
 
 # Display the time it takes to redraw each frame.
 render_timer: false

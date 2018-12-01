@@ -3,3 +3,6 @@
 # environemnt variables which are defined at the DM level
 
 export MOZ_USE_XINPUT2=1
+
+# per host settings like dpi
+[ -f "$HOME/.xrc/`hostname`.xprofile" ] && . "$HOME/.xrc/`hostname`.xprofile"
