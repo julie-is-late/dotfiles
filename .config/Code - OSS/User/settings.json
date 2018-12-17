@@ -105,10 +105,12 @@
     "search.smartCase": true,
     "extensions.showRecommendationsOnlyOnDemand": true,
     "terminal.integrated.drawBoldTextInBrightColors": false,
-    "update.channel": "none",
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
     "C_Cpp.clang_format_path": "/usr/bin/clang-format",
     "perforce.annotate.changelist": true,
+    "perforce.client": "jshapiro-lap-vi",
+    "perforce.port": "p4proxy-austin.nvidia.com:2006",
+    "perforce.user": "jshapiro",
     "editor.minimap.showSlider": "always",
     "git.ignoredRepositories": [
         "/home/jshapiro",
@@ -121,9 +123,8 @@
     "vim.cursorStylePerMode.visual": "block-outline",
     "vim.cursorStylePerMode.visualblock": "block-outline",
     "vim.cursorStylePerMode.visualline": "block-outline",
-    "perforce.client": "jshapiro-lap-vi",
-    "perforce.port": "p4proxy-austin.nvidia.com:2006",
-    "perforce.user": "jshapiro",
     "workbench.iconTheme": "vs-minimal",
-    "workbench.activityBar.visible": true
+    "workbench.activityBar.visible": true,
+    "window.titleBarStyle": "native",
+    "update.channel": "none"
 }
