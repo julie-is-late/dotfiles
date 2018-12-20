@@ -53,6 +53,9 @@ fi
 # -----------------------------------------
 ### zsh tweaks
 
+autoload -Uz compinit
+compinit
+
 # history
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
@@ -126,6 +129,8 @@ local host=$HOST
 # add custom completions
 zstyle :compinstall filename "$HOME/.zshrc"
 
+# Completion for kitty
+[ -x "$(command -v kitty)" ] && kitty + complete setup zsh | source /dev/stdin
 
 # -----------------------------------------
 ### my (homeless) settings
