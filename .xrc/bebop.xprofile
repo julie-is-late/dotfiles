@@ -2,4 +2,10 @@
 #
 # environemnt variables which are defined at the DM level for bebop
 
+# for alacritty
 export WINIT_HIDPI_FACTOR=2.0
+
+## scale gtk
+#export GDK_SCALE=2
+## scale gtk fonts back
+#export GDK_DPI_SCALE=0.5
