@@ -54,7 +54,7 @@ fi
 ### zsh tweaks
 
 autoload -Uz compinit
-compinit
+#compinit
 
 # history
 HISTFILE=~/.zsh_history
