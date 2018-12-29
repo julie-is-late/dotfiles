@@ -15,5 +15,5 @@ export GPG_TTY=$(tty)
 
 if [[ -n $SSH_CLIENT ]]; then
     alias reboot='sudo reboot'
-    alias shutdown='sudo shutdown'
+#    alias shutdown='sudo shutdown'
 fi
