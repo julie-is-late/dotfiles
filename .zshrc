@@ -36,7 +36,8 @@ zplug "zsh-users/zsh-completions", defer:2
 # lets get some syntax highlighting
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # and my theme
-zplug "mafredri/zsh-async", use:"async.zsh"
+#zplug "mafredri/zsh-async", use:"async.zsh"
+zplug "jshap70/pure", use:"async.zsh"
 zplug "jshap70/pure", use:"pure.zsh", as:theme
 #zplug "~/dev/pure/", from:local, use:"pure.zsh"
 local keyfile=(.ssh/id_rsa*(NY1))
