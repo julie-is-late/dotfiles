@@ -90,5 +90,15 @@
     {
         "key": "ctrl+shift+w",
         "command": "-workbench.action.closeWindow"
-    }
+},
+{
+        "key": "ctrl+shift+v",
+        "command": "-workbench.action.terminal.paste",
+        "when": "terminalFocus"
+},
+{
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+}
 ]

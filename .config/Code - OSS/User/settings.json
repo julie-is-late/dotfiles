@@ -89,7 +89,7 @@
     "[python]": {},
     "python.pythonPath": "C:\\Users\\jshapiro\\AppData\\Local\\Programs\\Python\\Python27\\python.exe",
     "diffEditor.ignoreTrimWhitespace": false,
-    "python.workspaceSymbols.ctagsPath": "C:/Users/jshapiro/bin/ctags58/ctags.exe",
+    "python.workspaceSymbols.ctagsPath": "/usr/bin/ctags",
     "telemetry.enableTelemetry": false,
     "vim.disableExtension": false,
     "editor.minimap.maxColumn": 100,
