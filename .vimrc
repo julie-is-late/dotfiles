@@ -49,6 +49,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'pboettch/vim-cmake-syntax'
+Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 
