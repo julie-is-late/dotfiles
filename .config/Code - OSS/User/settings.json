@@ -27,7 +27,7 @@
     "terminal.external.linuxExec": "gnome-terminal",
 
     "window.menuBarVisibility": "hidden",
-    "terminal.integrated.shell.windows": "C:\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
     "vim.handleKeys": {
         // "<C-o>": false
@@ -126,5 +126,6 @@
     "workbench.iconTheme": "vs-minimal",
     "workbench.activityBar.visible": true,
     "window.titleBarStyle": "native",
-    "update.channel": "none"
+    "update.channel": "none",
+    "vim.useSystemClipboard": true
 }

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export NVIDIA=1
+
+xrdb -merge .nvidia-Xresources
+
+sh .xinitrc

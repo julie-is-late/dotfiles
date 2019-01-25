@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# environemnt variables which are defined at the DM level for swordfish
+
+[ -z "$NVIDIA" ] && export WINIT_HIDPI_FACTOR=2.0
