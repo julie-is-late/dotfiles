@@ -4,6 +4,7 @@
 # environment settings
 
 export EDITOR="vim"
+export BROWSER="firefox-nightly"
 
 # specify directory colors
 #eval $(dircolors -b ~/.dir_colors)

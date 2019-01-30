@@ -123,6 +123,8 @@ local release=$(cat /etc/*release | awk -F'=' '/^ID=/ { print $2 }')
 [[ -f "$HOME/.zsh/$release.zshrc" ]] && source "$HOME/.zsh/$release.zshrc"
 local host=$HOST
 [[ -f "$HOME/.zsh/$host.zshrc" ]] && source "$HOME/.zsh/$host.zshrc"
+# work urls & servers
+[[ -f "$HOME/.zsh/work.zshrc" ]] && source "$HOME/.zsh/work.zshrc"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
