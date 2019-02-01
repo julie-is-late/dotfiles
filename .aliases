@@ -50,7 +50,8 @@ alias vscode='code '
 alias open='open_command '
 
 # alias for nvidia-xrun
-alias nstartx='nvidia-xrun'
+alias nvstartx='nvidia-xrun'
+alias nstartx='nvstartx'
 
 # -----------------------------------------
 # useless
