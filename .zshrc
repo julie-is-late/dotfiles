@@ -21,25 +21,28 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 #               docker thefuck pip git
 zplug "lib/key-bindings", \
     from:oh-my-zsh
+
 [ -x "$(command -v fzf)" ] && [[ "$(command -v fzf)" != $ZPLUG_BIN* ]] || \
 zplug "junegunn/fzf-bin", \
     from:gh-r, \
     as:command, \
     rename-to:fzf, \
     use:"*linux*amd64*"
+
 zplug "junegunn/fzf", \
     rename-to:fzf-zsh, \
     use:"shell/*.zsh", \
     defer:2
-#    on:"fzf-bin"
+
 zplug "zsh-users/zsh-completions", defer:2
 # lets get some syntax highlighting
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # and my theme
-#zplug "mafredri/zsh-async", use:"async.zsh"
 zplug "jshap70/pure", use:"async.zsh"
+#zplug "mafredri/zsh-async", use:"async.zsh"
 zplug "jshap70/pure", use:"pure.zsh", as:theme
 #zplug "~/dev/pure/", from:local, use:"pure.zsh"
+
 local keyfile=(.ssh/id_rsa*(NY1))
 [[ -n $keyfile ]] && zplug "plugins/ssh-agent", from:oh-my-zsh
 
@@ -55,12 +58,12 @@ fi
 ### zsh tweaks
 
 autoload -Uz compinit
-#compinit
 
 # history
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=5000
+
 setopt sharehistory
 setopt appendhistory
 
@@ -72,24 +75,21 @@ setopt completealiases          # complete alisases
 setopt complete_in_word         # allow completion from within a word/phrase
 setopt list_ambiguous           # complete as much as it can until ambiguous
 setopt auto_cd                  # auto cd when dir is given w/ no command
-
-setopt noflowcontrol          # turn off ctrl+s freezing, ctrl+q unfreezing
-stty -ixon -ixoff 2>/dev/null # no, really, please no flow control
+setopt correct                  # spelling correction for commands
+setopt noflowcontrol            # turn off ctrl+s freezing, ctrl+q unfreezing
+stty -ixon -ixoff 2>/dev/null   # no, really, please no flow control
 
 # TODO: clean this section up/decide what's trash
-
 #setopt hash_list_all    # hash everything before completion
 #setopt always_to_end    # when compl. from middle of word, move cursor to end
-#setopt correct          # spelling correction for commands
 
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       # colorz !
 zstyle ':completion:*' rehash true
+zstyle ':completion:*' menu select                          # menu if nb items > 2
 #zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
-#zstyle ':completion:*' menu select                          # menu if nb items > 2
 #zstyle ':completion:*::::' completer _expand _complete _ignored _approximate # list of completers to use
-#zstyle ':completion:*' menu select
 
 # zsh moving
 autoload -U zmv
@@ -99,9 +99,6 @@ autoload -U select-word-style
 select-word-style bash
 
 export PATH=$PATH:$ZPLUG_BIN
-
-# load zplug @ the end
-
 
 # -----------------------------------------
 ### load special dotfiles!
@@ -147,11 +144,10 @@ PURE_PROMPT_HOST_COLOR_MAX=6
 PURE_PROMPT_HOST_COLOR_MIN=1
 PURE_PROMPT_HOSTNAME="$host"
 
-
 #[[ $TMUX = "" ]] || export TERM="${TERM/[a-zA-Z]+-?/screen}"
 
 # -----------------------------------------
 ### load zplug
 
-# NOTE: here so custom theme variables take effect
+# load zplug @ the end so custom theme variables take effect
 zplug load # finish zplug
