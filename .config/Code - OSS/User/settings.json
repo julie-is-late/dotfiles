@@ -127,5 +127,6 @@
     "workbench.activityBar.visible": true,
     "window.titleBarStyle": "native",
     "update.channel": "none",
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "vim.neovimPath": "/usr/bin/nvim"
 }
