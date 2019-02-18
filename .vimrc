@@ -186,6 +186,9 @@ set ttyfast
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamedplus
 
+" tab complete into the statusbar
+set wildmenu
+
 " Status tweaks
 "turn on statusline
 set laststatus=2
