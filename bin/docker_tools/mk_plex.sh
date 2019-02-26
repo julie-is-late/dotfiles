@@ -3,12 +3,12 @@ docker rm plex
 
 docker run \
     -d \
-    --restart unless-stopped \
+    --restart unless-stopped `# restart at boot` \
     --runtime=nvidia \
     --name=plex \
     -e ADVERTISE_IP="http://192.168.1.102:32400/" \
-    -h perplexed \
-    -p 32400:32400/tcp \
+    -h perplexed `# lol` \
+    -p 32400:32400/tcp `# this is the only one req to be open to the interwebs` \
     -p 3005:3005/tcp \
     -p 8324:8324/tcp \
     -p 32469:32469/tcp \
@@ -27,8 +27,8 @@ docker run \
     -v /mnt/ume/Music/:/data/music \
     -v /mnt/ume/anime/:/data/anime \
     -v /mnt/ume/plex/transcode/:/transcode \
-    -e PLEX_UID=973 \
-    -e PLEX_GID=973 \
-    -e CHANGE_CONFIG_DIR_OWNERSHIP=false \
+    -e PLEX_UID=$(id -u plex) \
+    -e PLEX_GID=$(id -g plex) \
+    -e CHANGE_CONFIG_DIR_OWNERSHIP=false `#required because ntfs stuffs 😖` \
     plexinc/pms-docker:public
 
