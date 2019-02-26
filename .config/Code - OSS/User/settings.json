@@ -128,5 +128,6 @@
     "window.titleBarStyle": "native",
     "update.channel": "none",
     "vim.useSystemClipboard": true,
-    "vim.neovimPath": "/usr/bin/nvim"
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.hlsearch": true
 }
