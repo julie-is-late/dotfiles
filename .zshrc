@@ -1,6 +1,9 @@
 #!/bin/zsh
 # jshap's not-so-standard .zshrc
 
+# -----------------------------------------
+# quit early if we can
+case $- in (*i*) ;; *) exit 0; esac
 
 # -----------------------------------------
 ### zplug nonsense
