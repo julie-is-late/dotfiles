@@ -117,4 +117,20 @@ fi
 ## load at end so setting variables take effect
 source <(antibody init)
 
-antibody bundle < ~/.zsh_plugins.txt
+antibody bundle << EOF
+# keyboard shortcuts bundle from oh-my-zsh
+# other useful: archlinux colored-man-pages command-not-found docker git
+robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
+
+# fzf shortcuts for **<tab> and ctrl+r
+junegunn/fzf path:shell
+
+# these completions are baller
+zsh-users/zsh-completions path:src kind:fpath
+# fish style syntax highlighting
+zsh-users/zsh-syntax-highlighting
+
+# and my theme
+jshap70/pure path:async.zsh
+jshap70/pure path:pure.zsh
+EOF
