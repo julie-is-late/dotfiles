@@ -101,10 +101,10 @@ if [ ! -x "$(command -v antibody)" ]; then
         inst=$(mktemp)
         curl -sL "https://raw.githubusercontent.com/getantibody/installer/master/install" > $inst
 
-        if read "REPLY?Print the install script? or just fuck my shit up?: " && \
+        if read "REPLY?View the install script? or just fuck my shit up?: " && \
             { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
         then
-            less $inst
+            vim $inst
         fi
         if read "REPLY?Proceed with install?: " && \
             { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
