@@ -2,65 +2,10 @@
 # jshap's not-so-standard .zshrc
 
 # -----------------------------------------
-# quit early if we can
-case $- in (*i*) ;; *) exit 0; esac
-
-# -----------------------------------------
-### zplug nonsense
-
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-    git clone https://github.com/zplug/zplug ~/.zplug
-    source ~/.zplug/init.zsh && zplug --self-manage
-fi
-
-# load zplug
-source ~/.zplug/init.zsh
-# manage yourself
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-
-# bundles from oh-my-zsh
-# other useful: archlinux golang gradle colored-man-pages command-not-found
-#               docker thefuck pip git
-zplug "lib/key-bindings", \
-    from:oh-my-zsh
-
-[ -x "$(command -v fzf)" ] && [[ "$(command -v fzf)" != $ZPLUG_BIN* ]] || \
-zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    as:command, \
-    rename-to:fzf, \
-    use:"*linux*amd64*"
-
-zplug "junegunn/fzf", \
-    rename-to:fzf-zsh, \
-    use:"shell/*.zsh", \
-    defer:2
-
-zplug "zsh-users/zsh-completions", defer:2
-# lets get some syntax highlighting
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# and my theme
-zplug "jshap70/pure", use:"async.zsh"
-#zplug "mafredri/zsh-async", use:"async.zsh"
-zplug "jshap70/pure", use:"pure.zsh", as:theme
-#zplug "~/dev/pure/", from:local, use:"pure.zsh"
-
-local keyfile=(.ssh/id_rsa*(NY1))
-[[ -n $keyfile ]] && zplug "plugins/ssh-agent", from:oh-my-zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# -----------------------------------------
 ### zsh tweaks
 
-autoload -Uz compinit
+autoload -U compinit
+compinit
 
 # history
 HISTFILE=~/.zsh_history
@@ -72,7 +17,7 @@ setopt appendhistory
 
 unsetopt beep
 
-setopt INTERACTIVE_COMMENTS     # allow in-repl comments starting w/ #
+setopt interactive_comments     # allow in-repl comments starting w/ #
 
 setopt completealiases          # complete alisases
 setopt complete_in_word         # allow completion from within a word/phrase
@@ -101,7 +46,6 @@ autoload -U zmv
 autoload -U select-word-style
 select-word-style bash
 
-export PATH=$PATH:$ZPLUG_BIN
 
 # -----------------------------------------
 ### load special dotfiles!
@@ -115,6 +59,7 @@ fpath=(
     ~/.zsh/completion
     "${fpath[@]}"
 )
+
 [[ -d ~/.zsh/functions ]] && for function in ~/.zsh/functions/*; do autoload -Uz $function ; done
 [[ -d ~/.zsh/completion ]] && for function in ~/.zsh/completion/*; do autoload -Uz $function ; done
 
@@ -129,8 +74,6 @@ local host=$HOST
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-# add custom completions
-zstyle :compinstall filename "$HOME/.zshrc"
 
 # -----------------------------------------
 ### my (homeless) settings
@@ -146,8 +89,32 @@ PURE_PROMPT_HOSTNAME="$host"
 
 #[[ $TMUX = "" ]] || export TERM="${TERM/[a-zA-Z]+-?/screen}"
 
-# -----------------------------------------
-### load zplug
 
-# load zplug @ the end so custom theme variables take effect
-zplug load # finish zplug
+# -----------------------------------------
+### plugin nonsense
+
+# install if needed
+if [ ! -x "$(command -v antibody)" ]; then
+    if read "REPLY?antibody not found, would you like to install?: " && \
+        { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+    then
+        inst=$(mktemp)
+        curl -sL "https://raw.githubusercontent.com/getantibody/installer/master/install" > $inst
+
+        if read "REPLY?Print the install script? or just fuck my shit up?: " && \
+            { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+        then
+            less $inst
+        fi
+        if read "REPLY?Proceed with install?: " && \
+            { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+        then
+            sh $inst
+        fi
+    fi
+fi
+
+## load at end so setting variables take effect
+source <(antibody init)
+
+antibody bundle < ~/.zsh_plugins.txt

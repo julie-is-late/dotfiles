@@ -1,0 +1,14 @@
+# bundles from oh-my-zsh
+# other useful: archlinux golang gradle colored-man-pages command-not-found
+#               docker thefuck pip git
+robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
+
+junegunn/fzf path:shell
+
+zsh-users/zsh-completions path:src kind:fpath
+# lets get some syntax highlighting
+zsh-users/zsh-syntax-highlighting
+
+# and my theme
+jshap70/pure path:async.zsh
+jshap70/pure path:pure.zsh
