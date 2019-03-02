@@ -66,14 +66,30 @@ fpath=(
 # local distro/machine specific config
 local release=$(cat /etc/*release | awk -F'=' '/^ID=/ { print $2 }')
 [[ -f "$HOME/.zsh/$release.zshrc" ]] && source "$HOME/.zsh/$release.zshrc"
-local host=$HOST
-[[ -f "$HOME/.zsh/$host.zshrc" ]] && source "$HOME/.zsh/$host.zshrc"
+[[ -f "$HOME/.zsh/$HOST.zshrc" ]] && source "$HOME/.zsh/$HOST.zshrc"
 # work urls & servers
 [[ -f "$HOME/.zsh/work.zshrc" ]] && source "$HOME/.zsh/work.zshrc"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# ssh-keys
+local _ssh_env="$HOME/.ssh/environment-$HOST"
+[[ -f "$_ssh_env" ]] && source $_ssh_env > /dev/null
+
+#allow for ssh-add to be ctrl+c'd and yet still load my damn shell theme
+local add-keys() {
+    setopt localoptions localtraps
+    trap 'return' INT
+    ssh-add
+}
+
+# ensure it's alive and kicking
+kill -0 ${SSH_AGENT_PID} >/dev/null 2>&1 || {
+    (umask 066; ssh-agent -s | sed 's/^echo/#echo/' >! $_ssh_env)
+    . $_ssh_env >/dev/null
+    add-keys
+}
 
 # -----------------------------------------
 ### my (homeless) settings
@@ -85,7 +101,7 @@ PURE_CMD_MAX_EXEC_TIME=15
 #PURE_PROMPT_HOST_COLOR=red
 PURE_PROMPT_HOST_COLOR_MAX=6
 PURE_PROMPT_HOST_COLOR_MIN=1
-PURE_PROMPT_HOSTNAME="$host"
+PURE_PROMPT_HOSTNAME="$HOST"
 
 #[[ $TMUX = "" ]] || export TERM="${TERM/[a-zA-Z]+-?/screen}"
 
@@ -98,7 +114,7 @@ if [ ! -x "$(command -v antibody)" ]; then
     if read "REPLY?antibody not found, would you like to install?: " && \
         { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
     then
-        inst=$(mktemp)
+        local inst=$(mktemp)
         curl -sL "https://raw.githubusercontent.com/getantibody/installer/master/install" > $inst
 
         if read "REPLY?View the install script? or just fuck my shit up?: " && \
