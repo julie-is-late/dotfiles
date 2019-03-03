@@ -6,7 +6,7 @@ docker run \
     --restart unless-stopped `# restart at boot` \
     --runtime=nvidia \
     --name=plex \
-    -e ADVERTISE_IP="http://192.168.1.102:32400/" \
+    -e ADVERTISE_IP="https://host.tld:port/" `# it's a secret lol` \
     -h perplexed `# lol` \
     -p 32400:32400/tcp `# this is the only one req to be open to the interwebs` \
     -p 3005:3005/tcp \
