@@ -110,7 +110,7 @@ PURE_PROMPT_HOSTNAME="$HOST"
 ### plugin nonsense
 
 # install if needed
-if [ ! -x "$(command -v antibody)" ]; then
+if [ -z "$(command -v antibody)" ]; then
     if read "REPLY?antibody not found, would you like to install?: " && \
         { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
     then
