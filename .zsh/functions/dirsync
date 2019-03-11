@@ -15,3 +15,9 @@ rsync -nvrca ${dir1}/ ${host}:${dir2// /\\ }/ $@ | \
     grep -v -E "^created directory " | \
     xargs -i --interactive -- bash -c "</dev/tty vimdiff '${dir1}/{}' 'rsync://${host}/${dir2// /\\ }/{}' || exit 255"
 
+rsync -nvrca --ignore-existing ${host}:${dir2// /\\ }/ ${dir1}/ $@ | \
+    head -n-3 | \
+    tail -n+2 | \
+    grep -v -E "/$" | \
+    grep -v -E "^created directory " | \
+    xargs -i --interactive -- bash -c "</dev/tty vimdiff 'rsync://${host}/${dir2// /\\ }/{}' '${dir1}/{}' || exit 255"
