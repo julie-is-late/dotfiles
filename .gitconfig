@@ -1,5 +1,5 @@
 [user]
-    email = <replace me>
+    email = <replace_me>
     name = Joel Shapiro
     #signingkey = 44E58546
 [push]
@@ -38,3 +38,5 @@
 
 [alias]
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+    untrack = "update-index --assume-unchanged"
+    retrack = "update-index --no-assume-unchanged"
