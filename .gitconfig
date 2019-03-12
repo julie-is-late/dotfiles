@@ -1,0 +1,40 @@
+[user]
+    email = <replace me>
+    name = Joel Shapiro
+    #signingkey = 44E58546
+[push]
+    default = simple
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+
+[commit]
+    #gpgsign = true
+[branch]
+    #autosetupmerge = always
+    #autosetuprebase = always
+
+[merge]
+    tool = vimdiff
+[mergetool "vimdiff"]
+    conflictstyle = diff3
+[mergetool "gvimdiff"]
+    conflictstyle = diff3
+[mergetool "intellij"]
+    cmd = idea merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+[mergetool "vscode"]
+    cmd = code --wait \"$MERGED\"
+
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[difftool "vimdiff"]
+    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+[difftool "intellij"]
+    cmd = idea diff \"$LOCAL\" \"$REMOTE\"
+[difftool "vscode"]
+    cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+
+[alias]
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
