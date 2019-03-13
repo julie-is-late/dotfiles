@@ -73,23 +73,28 @@ local release=$(cat /etc/*release | awk -F'=' '/^ID=/ { print $2 }')
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-# ssh-keys
-local _ssh_env="$HOME/.ssh/environment-$HOST"
-[[ -f "$_ssh_env" ]] && source $_ssh_env > /dev/null
+# -----------------------------------------
+### ssh-keys
 
-#allow for ssh-add to be ctrl+c'd and yet still load my damn shell theme
-local add-keys() {
-    setopt localoptions localtraps
-    trap 'return' INT
-    ssh-add
-}
+# if we already have a farwarded agent, do nothing
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    local _ssh_env="$HOME/.ssh/environment-$HOST"
+    [[ -f "$_ssh_env" ]] && source $_ssh_env > /dev/null
 
-# ensure it's alive and kicking
-kill -0 ${SSH_AGENT_PID} >/dev/null 2>&1 || {
-    (umask 066; ssh-agent -s | sed 's/^echo/#echo/' >! $_ssh_env)
-    . $_ssh_env >/dev/null
-    add-keys
-}
+    # allow for ssh-add to be ctrl+c'd and yet still load my damn shell theme
+    local add-keys() {
+        setopt localoptions localtraps
+        trap 'return' INT
+        ssh-add
+    }
+
+    # ensure it's alive and kicking
+    kill -0 ${SSH_AGENT_PID} >/dev/null 2>&1 || {
+        (umask 066; ssh-agent -s | sed 's/^echo/#echo/' >! $_ssh_env)
+        . $_ssh_env >/dev/null
+        add-keys
+    }
+fi
 
 # -----------------------------------------
 ### my (homeless) settings
