@@ -2,4 +2,4 @@
 #
 # environemnt variables which are defined at the DM level for seme
 
-export WINIT_HIDPI_FACTOR=2.0
+#export WINIT_HIDPI_FACTOR=2.0
