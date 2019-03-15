@@ -10,4 +10,8 @@ else
 fi
 service=${1}
 
-sudo -u ${user} PAGER=less XDG_RUNTIME_DIR="/run/user/$(id -u ${user})" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" systemctl --user ${comm} ${service}
+sudo -u ${user} \
+    PAGER=less \
+    XDG_RUNTIME_DIR="/run/user/$(id -u ${user})" \
+    DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" \
+    systemctl --user ${comm} ${service}
