@@ -1,6 +1,6 @@
 #!/bin/zsh
-# sync file changes in $1 directory to $2 host.
-# this is super jank
+# run `systemctl --user` commands as another user.
+# default action is "status".
 
 user=${1} && shift || return 1
 if [ "$#" -gt 1 ]; then
