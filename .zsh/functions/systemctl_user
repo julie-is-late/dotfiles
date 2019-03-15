@@ -1,0 +1,13 @@
+#!/bin/zsh
+# sync file changes in $1 directory to $2 host.
+# this is super jank
+
+user=${1} && shift || return 1
+if [ "$#" -gt 1 ]; then
+    comm=${1} && shift
+else
+    comm="status"
+fi
+service=${1}
+
+sudo -u ${user} PAGER=less XDG_RUNTIME_DIR="/run/user/$(id -u ${user})" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" systemctl --user ${comm} ${service}
