@@ -77,7 +77,7 @@ local release=$(cat /etc/*release | awk -F'=' '/^ID=/ { print $2 }')
 ### ssh-keys
 
 # if we already have a farwarded agent, do nothing
-if [ -z "$SSH_AUTH_SOCK" ]; then
+if [[ -z "$SSH_CONNECTION" ]]; then
     local _ssh_env="$HOME/.ssh/environment-$HOST"
     [[ -f "$_ssh_env" ]] && source $_ssh_env > /dev/null
 
