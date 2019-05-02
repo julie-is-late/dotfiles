@@ -11,7 +11,7 @@ for ($fgbg = 38; $fgbg <= 48; $fgbg +=10) {
         print "\x1b[${fgbg};5;${color}m::";
     }
     print "\x1b[0m\n\n";
-    print "Bold system colors:\n";
+    print "\x1b[1mBold\x1b[0m system colors:\n";
     for ($color = 0; $color < 8; $color++) {
         print "\x1b[${fgbg};5;${color};1m::";
     }
