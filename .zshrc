@@ -147,7 +147,9 @@ robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
 junegunn/fzf path:shell
 
 # these completions are baller
-zsh-users/zsh-completions path:src kind:fpath
+# NOTE: moved to native pacman install! (pacman -S zsh-completions)
+#zsh-users/zsh-completions path:src kind:fpath
+
 # fish style syntax highlighting
 zsh-users/zsh-syntax-highlighting
 
