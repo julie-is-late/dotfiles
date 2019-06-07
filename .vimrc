@@ -234,15 +234,17 @@ call SetupCommandAlias("w!!", "w !sudo tee > /dev/null %")
 highlight BadWordsMatch ctermbg=red ctermfg=white
 function Fuck()
     " actual bad words
-    let wordlist = "fuck\\|balls\\|shit\\|dick\\|ass\\|bitch"
+    " ('fuck' is a special case and has a more advanced search)
+    let wordlist = "\\w\\{-}fuc\\?k\\(ing\\)\\?\\|shit\\|dick\\|ass\\|bitch"
     " other bad garbage that probably just shouldn't make it into code
     let wordlist = wordlist . "\\|stuff\\|lol\\|welp\\|oops"
+    " less intense but maybe still bad
+    let wordlist = wordlist . "\\|eff\\(ing\\)\\?\\|balls"
     execute 'match BadWordsMatch /\c\<\(' . wordlist . '\)\>/'
 endfunction
-command! Fuck call Fuck() " alias
-call SetupCommandAlias("fuck", "Fuck")
-
-" autoenable MatchBadWords
+call SetupCommandAlias("fuck", "call Fuck()")
+"
+" enable by default on certain file types
 " autocmd FileType markdown call Fuck()
 
 
