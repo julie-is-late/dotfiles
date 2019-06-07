@@ -1,7 +1,8 @@
 " jshap's vimrc
 " there are many like it, but this one is mine
 
-" Load vim-plug
+" -----------------------------------------
+""" Load vim-plug
 if !has('win32')
     let autoload_dir=$HOME."/.vim/autoload"
 else
@@ -53,7 +54,7 @@ Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 
-
+" -----------------------------------------
 """ looks
 
 set background=dark
@@ -212,6 +213,9 @@ set statusline+=/%L     "total lines
 set statusline+=\ %P\   "percent through file
 
 
+" -----------------------------------------
+""" custom commands/fun!
+
 " fun easy way to make aliases for commands!
 " (I don't remember where this came from, appologies original creator)
 fun! SetupCommandAlias(from, to)
@@ -225,6 +229,25 @@ call SetupCommandAlias("diff","w !diff % -")
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 call SetupCommandAlias("w!!", "w !sudo tee > /dev/null %")
+
+" Fun to highlight bad words because I have a potty mouth
+highlight BadWordsMatch ctermbg=red ctermfg=white
+function Fuck()
+    " actual bad words
+    let wordlist = "fuck\\|balls\\|shit\\|dick\\|ass\\|bitch"
+    " other bad garbage that probably just shouldn't make it into code
+    let wordlist = wordlist . "\\|stuff\\|lol\\|welp\\|oops"
+    execute 'match BadWordsMatch /\c\<\(' . wordlist . '\)\>/'
+endfunction
+command! Fuck call Fuck() " alias
+call SetupCommandAlias("fuck", "Fuck")
+
+" autoenable MatchBadWords
+" autocmd FileType markdown call Fuck()
+
+
+" -----------------------------------------
+""" misc tweaks
 
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
