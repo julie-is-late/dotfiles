@@ -112,48 +112,67 @@ PURE_PROMPT_HOSTNAME="$HOST"
 
 
 # -----------------------------------------
-### plugin nonsense
+### plugin nonsense (some of the order matters)
 
-# install if needed
-if [ -z "$(command -v antibody)" ]; then
-    if read "REPLY?antibody not found, would you like to install?: " && \
-        { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
-    then
-        local inst=$(mktemp)
-        curl -sL "https://raw.githubusercontent.com/getantibody/installer/master/install" > $inst
+# manually load some plugins :)
 
-        if read "REPLY?View the install script? or just fuck my shit up?: " && \
-            { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
-        then
-            vim $inst
-        fi
-        if read "REPLY?Proceed with install?: " && \
-            { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
-        then
-            sh $inst
-        fi
-    fi
-fi
-
-## load at end so setting variables take effect
-source <(antibody init)
-
-antibody bundle << EOF
 # keyboard shortcuts bundle from oh-my-zsh
 # other useful: archlinux colored-man-pages command-not-found docker git
-robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
+source "$HOME/.zsh/plugins/key-bindings.zsh"
+# use antibody if needed
+if [[ ! -a "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+
+    if [ -z "$(command -v antibody)" ]; then
+        if read "REPLY?antibody not found, would you like to install?: " && \
+            { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+        then
+            local inst=$(mktemp)
+            curl -sL "https://raw.githubusercontent.com/getantibody/installer/master/install" > $inst
+
+            if read "REPLY?View the install script? or just fuck my shit up?: " && \
+                { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+            then
+                vim $inst
+            fi
+            if read "REPLY?Proceed with install?: " && \
+                { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+            then
+                sh $inst
+            fi
+        fi
+    fi
+
+    #: << 'anitantibody'
+    ## load at end so setting variables take effect
+    source <(antibody init)
+
+    antibody bundle << EOF
+# other useful: archlinux colored-man-pages command-not-found docker git
+#robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
 
 # fzf shortcuts for **<tab> and ctrl+r
 junegunn/fzf path:shell
 
 # these completions are baller
-# NOTE: moved to native pacman install! (pacman -S zsh-completions)
-#zsh-users/zsh-completions path:src kind:fpath
+zsh-users/zsh-completions path:src kind:fpath
 
 # fish style syntax highlighting
 zsh-users/zsh-syntax-highlighting
-
-# and my theme
-jshap70/pure path:async.zsh
-jshap70/pure path:pure.zsh
 EOF
+    #anitantibody
+
+else
+
+    # fish style syntax highlighting
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # zsh-completions are now built-in
+
+    # better ctrl + r history searching
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+
+fi
+
+# and finally my theme
+source "$HOME/.zsh/plugins/pure/async.zsh"
+source "$HOME/.zsh/plugins/pure/pure.zsh"
