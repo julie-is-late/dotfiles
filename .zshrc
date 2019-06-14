@@ -96,6 +96,7 @@ if [[ -z "$SSH_CONNECTION" ]]; then
     }
 fi
 
+
 # -----------------------------------------
 ### my (homeless) settings
 
@@ -114,63 +115,48 @@ PURE_PROMPT_HOSTNAME="$HOST"
 # -----------------------------------------
 ### plugin nonsense (some of the order matters)
 
-# manually load some plugins :)
-
-# keyboard shortcuts bundle from oh-my-zsh
+# keyboard shortcuts bundle needs to be loaded first (from oh-my-zsh)
 # other useful: archlinux colored-man-pages command-not-found docker git
 source "$HOME/.zsh/plugins/key-bindings.zsh"
+
 # use antibody if needed
 if [[ ! -a "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-
+    # maybe install if needed
     if [ -z "$(command -v antibody)" ]; then
-        if read "REPLY?antibody not found, would you like to install?: " && \
-            { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+        if read "REPLY?antibody not found, would you like to install?: " && [[ ${REPLY:u} =~ "Y.*" ]]
         then
             local inst=$(mktemp)
             curl -sL "https://raw.githubusercontent.com/getantibody/installer/master/install" > $inst
-
-            if read "REPLY?View the install script? or just fuck my shit up?: " && \
-                { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+            if read "REPLY?View the install script?: " && [[ "${REPLY:u}" =~ "Y.*" ]]
             then
                 vim $inst
             fi
-            if read "REPLY?Proceed with install?: " && \
-                { [[ ${REPLY} =~ "Y.*" ]] || [[ ${REPLY} =~ "y.*" ]]; }
+            if read "REPLY?Proceed with install? (and fuck my shit up): " && [[ "${REPLY:u}" =~ "Y.*" ]]
             then
                 sh $inst
             fi
         fi
     fi
+    if [ whence -cp antibody >/dev/null ]; then
+        source <(antibody init)
+        antibody bundle <<- EOF
+        # fzf shortcuts for **<tab> and ctrl+r
+        junegunn/fzf path:shell
 
-    #: << 'anitantibody'
-    ## load at end so setting variables take effect
-    source <(antibody init)
+        # these completions are baller
+        zsh-users/zsh-completions path:src kind:fpath
 
-    antibody bundle << EOF
-# other useful: archlinux colored-man-pages command-not-found docker git
-#robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
-
-# fzf shortcuts for **<tab> and ctrl+r
-junegunn/fzf path:shell
-
-# these completions are baller
-zsh-users/zsh-completions path:src kind:fpath
-
-# fish style syntax highlighting
-zsh-users/zsh-syntax-highlighting
+        # fish style syntax highlighting
+        zsh-users/zsh-syntax-highlighting
 EOF
-    #anitantibody
-
-else
-
+    fi
+else # manually load some plugins :)
     # fish style syntax highlighting
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    # zsh-completions are now built-in
 
     # better ctrl + r history searching
     source /usr/share/fzf/key-bindings.zsh
     source /usr/share/fzf/completion.zsh
-
 fi
 
 # and finally my theme

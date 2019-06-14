@@ -225,7 +225,10 @@ fun! SetupCommandAlias(from, to)
 endfun
 
 " make super easy 'diff buffer against saved' command
-call SetupCommandAlias("diff","w !diff % -")
+command MyDiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+                          \ | diffthis | wincmd p | diffthis
+"call SetupCommandAlias("diff","w !diff % -")
+call SetupCommandAlias("diff","MyDiffOrig")
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 call SetupCommandAlias("w!!", "w !sudo tee > /dev/null %")
