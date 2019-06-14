@@ -1,5 +1,7 @@
 " jshap's vimrc
 " there are many like it, but this one is mine
+"
+" note that this file is encoded in latin1 for weird windows issues :/
 
 " -----------------------------------------
 """ Load vim-plug
@@ -146,7 +148,7 @@ set hlsearch
 " Move cusor while matching
 set incsearch
 
-" 🍌 splits...
+" splits...
 set splitbelow " Splits open below instead of above
 set splitright " Vsplits open on the right instead of the left
 
@@ -172,9 +174,7 @@ set expandtab
 " Render some whitespace (note that there is some weirdness here because of
 " window's default character encoding is used when it reads vimrc
 if !has('win32')
-    set listchars=tab:>·,trail:·
-else
-    set listchars=tab:>·,trail:·
+    set listchars=tab:>�,trail:�
 endif
 set list
 
