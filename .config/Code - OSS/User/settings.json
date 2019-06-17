@@ -129,5 +129,6 @@
     "update.channel": "none",
     "vim.useSystemClipboard": true,
     "vim.neovimPath": "/usr/bin/nvim",
-    "vim.hlsearch": true
+    "vim.hlsearch": true,
+    "C_Cpp.updateChannel": "Insiders"
 }
