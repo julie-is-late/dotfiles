@@ -137,7 +137,7 @@ if [[ ! -a "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
             fi
         fi
     fi
-    if [ $(whence -cp antibody >/dev/null) ]; then
+    if whence -cp antibody >/dev/null; then
         source <(antibody init)
         antibody bundle <<- EOF
         # fzf shortcuts for **<tab> and ctrl+r
