@@ -1,34 +1,124 @@
 // Place your settings in this file to overwrite the default settings
 {
-    //                    'Hasklig', 'Iosevka', 'Hack',
-    "editor.fontFamily": "Consolas, Iosevka, Hack, 'Droid Sans Mono'",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 11.5,
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.fontFamily": "'Consolas', 'Droid Sans Mono'",
-    "terminal.integrated.lineHeight": 0,
-    "terminal.integrated.cursorBlinking": true,
-    "editor.cursorStyle": "block",
+    // main app behavioral stuff
     "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "left",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editor.closeOnFileDelete": false,
+    "workbench.editor.showIcons": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.enableExperiments": false,
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.activityBar.visible": true,
+    "workbench.colorCustomizations": {
+        "[Solarized Dark]": {
+            "activityBarBadge.background": "#f08080",
+            // "list.activeSelectionForeground": "#FF4081",
+            // "list.inactiveSelectionForeground": "#ff4081",
+            // "list.highlightForeground": "#FF4081",
+            "editorSuggestWidget.highlightForeground": "#f08080",
+            "textLink.foreground": "#f08080",
+            "progressBar.background": "#f08080",
+            "pickerGroup.foreground": "#f08080",
+            "tab.activeBorder": "#f08080",
+            "editorCursor.foreground": "#ffaf00",
+            "editor.selectionBackground": "#005A6FAA"
+        }
+    },
+    "workbench.statusBar.feedback.visible": false,
+
     "window.restoreWindows": "all",
+    "window.zoomLevel": 0,
+    "window.menuBarVisibility": "hidden",
+    "window.title": "${activeEditorShort}${separator}${rootName}${separator}vscode",
+    "window.titleBarStyle": "native",
+
+    // go away m$
+    "update.mode": "none",
+    "telemetry.enableTelemetry": false,
+
+
+    // files and editor behavior
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "off",
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.autoGuessEncoding": true,
+    "files.associations": {
+        "*.rkt": "racket"
+    },
+
+    "editor.fontFamily": "Consolas, 'Droid Sans Mono'",
+    "editor.fontLigatures": false,  // ligatures are explicitly BAD
+    "editor.fontSize": 11.5,
+    "editor.cursorStyle": "block",
     "editor.renderWhitespace": "boundary",
+    "editor.wordWrap": "bounded",
     "editor.wrappingIndent": "indent",
     "editor.rulers": [
         120,
         80
     ],
-    "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120,
-    "files.eol": "\n",
-    "window.zoomLevel": 0,
-    "files.trimTrailingWhitespace": true,
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
-    "terminal.external.linuxExec": "gnome-terminal",
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.maxColumn": 100,
+    "editor.accessibilitySupport": "off",
 
-    "window.menuBarVisibility": "hidden",
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
+    "explorer.openEditors.visible": 0,
+
+    "search.quickOpen.includeSymbols": false,
+    "search.smartCase": true,
+
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.filePath": "last",
+
+
+    // terminal
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.lineHeight": 0,
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "'Consolas', 'Droid Sans Mono'",
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+    "terminal.external.windowsExec": "C:\\msys64\\mingw64.exe",
+
+
+    // extensions
+    "extensions.showRecommendationsOnlyOnDemand": true,
+
+    "[cpp]": {
+        // "editor.quickSuggestions": false
+    },
+    // "C_Cpp.intelliSenseEngine": "Default",
+
+    "git.ignoredRepositories": [
+        "/home/jshapiro",
+        "/home/jshap"
+    ],
+
+    "[python]": {},
+    "python.pythonPath": "C:\\Users\\jshapiro\\AppData\\Local\\Programs\\Python\\Python27\\python.exe",
+    "python.workspaceSymbols.ctagsPath": "/usr/bin/ctags",
+
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
+    "C_Cpp.updateChannel": "Insiders",
+
+    "perforce.annotate.enable": true,
+    "perforce.annotate.changelist": true,
+    "perforce.client": "jshapiro-lap-vi",
+    "perforce.port": "p4proxy-austin.nvidia.com:2006",
+    "perforce.user": "jshapiro",
+
+    "cmake.useCMakeServer": false,
+
+    // vim
     "vim.handleKeys": {
         // "<C-o>": false
         "<C-a>": false,
@@ -37,10 +127,6 @@
         "<C-y>": false,
         "<C-z>": false
     },
-    "[cpp]": {
-        // "editor.quickSuggestions": false
-    },
-    // "C_Cpp.intelliSenseEngine": "Default",
     // "vim.otherModesKeyBindingsNonRecursive": [
     //     {
     //         // "before": ["Insert"],
@@ -61,74 +147,14 @@
     //     "visualblock": "#6d33aa"
     // },
     "vim.enableNeovim": true,
-    "files.autoSave": "off",
-    "workbench.sideBar.location": "left",
-
-    "files.insertFinalNewline": true,
-    "workbench.colorTheme": "Solarized Dark",
-    "workbench.colorCustomizations": {
-        "[Solarized Dark]": {
-            "activityBarBadge.background": "#f08080",
-            // "list.activeSelectionForeground": "#FF4081",
-            // "list.inactiveSelectionForeground": "#ff4081",
-            // "list.highlightForeground": "#FF4081",
-            "editorSuggestWidget.highlightForeground": "#f08080",
-            "textLink.foreground": "#f08080",
-            "progressBar.background": "#f08080",
-            "pickerGroup.foreground": "#f08080",
-            "tab.activeBorder": "#f08080",
-            "editorCursor.foreground": "#ffaf00",
-            "editor.selectionBackground": "#005A6FAA"
-        }
-    },
-    "workbench.editor.closeOnFileDelete": false,
-
-    "perforce.annotate.enable": true,
-    "files.autoGuessEncoding": true,
-    "explorer.openEditors.visible": 0,
-    "[python]": {},
-    "python.pythonPath": "C:\\Users\\jshapiro\\AppData\\Local\\Programs\\Python\\Python27\\python.exe",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "python.workspaceSymbols.ctagsPath": "/usr/bin/ctags",
-    "telemetry.enableTelemetry": false,
     "vim.disableExtension": false,
-    "editor.minimap.maxColumn": 100,
-    "editor.accessibilitySupport": "off",
-    "workbench.statusBar.feedback.visible": false,
-    "breadcrumbs.enabled": true,
-    "breadcrumbs.filePath": "last",
-    "workbench.editor.showIcons": false,
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.enableExperiments": false,
-    "window.title": "${activeEditorShort}${separator}${rootName}${separator}vscode",
-    "search.quickOpen.includeSymbols": false,
-    "search.smartCase": true,
-    "extensions.showRecommendationsOnlyOnDemand": true,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
-    "C_Cpp.clang_format_fallbackStyle": "LLVM",
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format",
-    "perforce.annotate.changelist": true,
-    "perforce.client": "jshapiro-lap-vi",
-    "perforce.port": "p4proxy-austin.nvidia.com:2006",
-    "perforce.user": "jshapiro",
-    "editor.minimap.showSlider": "always",
-    "git.ignoredRepositories": [
-        "/home/jshapiro",
-        "/home/jshap"
-    ],
-    "cmake.useCMakeServer": false,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.replace": "underline",
     "vim.cursorStylePerMode.visual": "block-outline",
     "vim.cursorStylePerMode.visualblock": "block-outline",
     "vim.cursorStylePerMode.visualline": "block-outline",
-    "workbench.iconTheme": "vs-minimal",
-    "workbench.activityBar.visible": true,
-    "window.titleBarStyle": "native",
-    "update.channel": "none",
     "vim.useSystemClipboard": true,
     "vim.neovimPath": "/usr/bin/nvim",
-    "vim.hlsearch": true,
-    "C_Cpp.updateChannel": "Insiders"
+    "vim.hlsearch": true
 }
