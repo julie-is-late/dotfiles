@@ -75,4 +75,4 @@ if [ -x "$script" -a ! -d "$script" ]; then
     . "$script"
 fi
 
-exec cinnamon-session
+exec gnome-session
