@@ -1,10 +1,16 @@
+#!/bin/sh
+###
+# this is the worst script of all time
+# please use a dockerfile instead
+# :(
+
 docker stop plex
 docker rm plex
 
 docker run \
     -d \
     --restart unless-stopped `# restart at boot` \
-    --runtime=nvidia \
+    --gpus=all \
     --name=plex \
     -e ADVERTISE_IP="https://host.tld:port/" `# it's a secret lol` \
     -h perplexed `# lol` \

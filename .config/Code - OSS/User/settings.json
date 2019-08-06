@@ -67,6 +67,7 @@
     "editor.accessibilitySupport": "off",
 
     "explorer.openEditors.visible": 0,
+    "explorer.confirmDragAndDrop": false,
 
     "search.quickOpen.includeSymbols": false,
     "search.smartCase": true,
