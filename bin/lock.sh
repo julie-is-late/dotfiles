@@ -11,31 +11,27 @@
 # scrot (optional but default)
 
 IMAGE="$(mktemp /tmp/i3lock.XXXXXXXX.png)"
-# SCREENSHOT="maim $IMAGE" # 0.46s
-
-# Alternate screenshot method with imagemagick. NOTE: it is much slower
-# SCREENSHOT="import -window root $IMAGE" # 1.35s
-
-# Here are some imagemagick blur types
-# Uncomment one to use, if you have multiple, the last one will be used
-
-# All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
-BLURTYPE="0x5" # 7.52s
-#BLURTYPE="0x2" # 4.39s
-#BLURTYPE="5x2" # 3.80s
-#BLURTYPE="2x8" # 2.90s
-#BLURTYPE="2x3" # 2.92s
-#BLURTYPE="0x20"
 
 # Get the screenshot, add the blur and lock the screen with it
-#maim "$IMAGE"
+# Alternate screenshot method with imagemagick. NOTE: it is much slower
+#import -window root "$IMAGE"  # 1.35s
+# and alternate with maim
+#maim "$IMAGE"  # 0.46s
+
 scrot -o "$IMAGE"
 
-#convert "$IMAGE" -gaussian-blur $BLURTYPE "$IMAGE"
-#convert "$IMAGE" -blur $BLURTYPE "$IMAGE"
-#convert "$IMAGE" -scale 5% -scale 2000% "$IMAGE"
+# Here are some imagemagick blur types
+# All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
 
-convert "$IMAGE" -scale 5% -scale 2000% -blur "0x7" "$IMAGE"
+#convert "$IMAGE" -scale 1% -scale 10000% "$IMAGE"
+#convert "$IMAGE" -scale 2.5% -scale 4000% "$IMAGE"
+convert "$IMAGE" -scale 5% -scale 2000% "$IMAGE"
+#convert "$IMAGE" -scale 10% -scale 1000% "$IMAGE"
+#convert "$IMAGE" -scale 10% -blur "0x0.25" -scale 1000% "$IMAGE"
+#convert "$IMAGE" -scale 5% -blur "0x1.5" -scale 2000% "$IMAGE"
+#convert "$IMAGE" -scale 5% -blur "0x0.25" -resize 2000% "$IMAGE"
+
+# finally, lock
 
 i3lock -e -i "$IMAGE"
 
