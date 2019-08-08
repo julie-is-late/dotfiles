@@ -24,8 +24,16 @@ scrot -o "$IMAGE"
 # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
 
 #convert "$IMAGE" -scale 1% -scale 10000% "$IMAGE"
-#convert "$IMAGE" -scale 2.5% -scale 4000% "$IMAGE"
-convert "$IMAGE" -scale 5% -scale 2000% "$IMAGE"
+
+# best pixelated
+convert "$IMAGE" -scale 2.5% -scale 4000% "$IMAGE"
+
+#convert "$IMAGE" -scale 3.333333% -scale 3000% "$IMAGE"
+#convert "$IMAGE" -scale 5% -scale 2000% "$IMAGE"
+
+# best blurred
+#convert "$IMAGE" -scale 5% -resize 2000% "$IMAGE"
+
 #convert "$IMAGE" -scale 10% -scale 1000% "$IMAGE"
 #convert "$IMAGE" -scale 10% -blur "0x0.25" -scale 1000% "$IMAGE"
 #convert "$IMAGE" -scale 5% -blur "0x1.5" -scale 2000% "$IMAGE"
