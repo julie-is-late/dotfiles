@@ -9,8 +9,10 @@ export BROWSER="firefox-nightly"
 # specify directory colors
 #eval $(dircolors -b ~/.dir_colors)
 
-# don't ring the bell at EOF in less. it's annoying.
-export LESS="$LESS -eFRXQ"
+# do a bunch of less config stuffs...
+# like, don't ring the bell at EOF in less. it's annoying.
+export LESS="-eFiQRX"
+export SYSTEMD_LESS="-FRSXMKQi"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
