@@ -244,7 +244,8 @@ endfunction
 call SetupCommandAlias("fuck", "call Fuck()")
 "
 " enable by default on certain file types
-" autocmd FileType markdown call Fuck()
+autocmd FileType markdown call Fuck()
+autocmd FileType text call Fuck()
 
 
 " -----------------------------------------
