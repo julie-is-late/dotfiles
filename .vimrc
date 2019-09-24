@@ -186,6 +186,11 @@ set clipboard=unnamedplus
 " tab complete into the statusbar
 set wildmenu
 
+" diffopt
+"if has("patch-8.1.0360")
+set diffopt+=internal,algorithm:patience
+"endif
+
 " Status tweaks
 "turn on statusline
 set laststatus=2
