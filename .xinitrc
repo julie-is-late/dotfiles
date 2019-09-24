@@ -75,4 +75,6 @@ if [ -x "$script" -a ! -d "$script" ]; then
     . "$script"
 fi
 
+export XDG_SESSION_TYPE=x11
+
 exec gnome-session
