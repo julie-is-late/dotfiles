@@ -13,5 +13,5 @@ echo "\`:cq\` to halt xargs"
     rsync -nvrca --ignore-existing ${host}:${dir2// /\\ }/ ${dir1}/ $@
 } | \
     grep -v -E '/$|(sending|receiving) incremental file list|^created directory |^sent |^total size is' | \
-    xargs -i --interactive -- bash -c "</dev/tty vimdiff '${dir1}/{}' 'rsync://${host}:/${dir2// /\\ }/{}' || exit 255"
+    xargs -i --interactive -- bash -c "</dev/tty vimdiff '${dir1}/{}' 'rsync://${host}:${dir2// /\\ }/{}' || exit 255"
 
