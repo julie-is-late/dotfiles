@@ -3,6 +3,6 @@
 # environemnt variables which are defined at the DM level for swordfish
 
 if [ -z "$NVIDIA" ]; then
-    export WINIT_HIDPI_FACTOR=2.0
-    export QT_DEVICE_PIXEL_RATIO=2
+    export WINIT_HIDPI_FACTOR=1
+    export QT_SCALE_FACTOR=1
 fi
