@@ -7,4 +7,4 @@ ExecStart=/usr/bin/tmux -2u new-session -d
 ExecStop=/usr/bin/tmux kill-session
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
