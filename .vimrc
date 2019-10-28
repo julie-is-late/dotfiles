@@ -160,6 +160,8 @@ set fileformats=unix,dos
 
 " Spellcheck, because I'm a horrible speller
 " set spell spelllang=en_us
+highlight SpellBad cterm=underline ctermbg=darkred
+highlight SpellBad gui=undercurl
 
 " set indent rules
 filetype plugin indent on
