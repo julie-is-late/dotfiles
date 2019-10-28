@@ -40,3 +40,4 @@
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
     untrack = "update-index --assume-unchanged"
     retrack = "update-index --no-assume-unchanged"
+    new-push = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); remote=$(git remote show); git push --set-upstream $remote $branch; }; f"
