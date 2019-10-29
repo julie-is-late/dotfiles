@@ -65,7 +65,10 @@ fpath=(
 [[ -d ~/.zsh/completion ]] && for function in ~/.zsh/completion/*; do autoload -Uz $function ; done
 
 # local distro/machine specific config
-local release=$(cat /etc/*release | awk -F'=' '/^ID=/ { print $2 }')
+local release=$(lsb_release -i -s 2>/dev/null | tr "[:upper:]" "[:lower:]")
+if [[ -z "release" ]]; then
+    release=$(awk -F'=' '/^ID=/ { print $2 }' /etc/*release | sed '1!d' | tr "[:upper:]" "[:lower:]")
+fi
 [[ -f "$HOME/.zsh/$release.zshrc" ]] && source "$HOME/.zsh/$release.zshrc"
 [[ -f "$HOME/.zsh/$HOST.zshrc" ]] && source "$HOME/.zsh/$HOST.zshrc"
 # work urls & servers
