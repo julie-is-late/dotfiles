@@ -32,8 +32,9 @@ fi
 
 # frameworks:
 # go
+export GOPATH="$HOME/.cache/go"
+
 #export GOBIN="~/go/bin"
-#export GOPATH="~/go"
 #export PATH="$PATH:$GOPATH/bin"
 
 # programs:
