@@ -1,6 +1,0 @@
-#!/bin/zsh
-# Start redshift on the external display using nvidia optimus
-
-function dsp_redshift() {
-    systemd-run --user --unit=redshift-external --setenv=DISPLAY=:8 redshift
-}

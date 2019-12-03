@@ -19,7 +19,6 @@ unsetopt beep
 
 setopt interactive_comments     # allow in-repl comments starting w/ #
 
-setopt completealiases          # complete alisases
 setopt complete_in_word         # allow completion from within a word/phrase
 setopt list_ambiguous           # complete as much as it can until ambiguous
 setopt auto_cd                  # auto cd when dir is given w/ no command

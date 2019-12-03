@@ -1,9 +1,0 @@
-#!/bin/zsh
-# Stop external display using nvidia optimus
-
-function dsp_stop() {
-    screen=$(_find_ex)
-    xrandr --output ${screen} --off
-    (_ex_X_kill) &>/dev/null
-    (systemctl --user stop redshift-external.service &) &>/dev/null
-}
