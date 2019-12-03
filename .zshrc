@@ -13,6 +13,8 @@ emulate sh -c 'source ~/.profile'
 autoload -U compinit
 compinit
 
+autoload -Uz promptinit
+
 # history
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
@@ -59,6 +61,8 @@ select-word-style bash
 fpath=(
     ~/.zsh/functions
     ~/.zsh/completion
+    ~/.zsh/plugins
+    ~/.zsh/plugins/pure
     "${fpath[@]}"
 )
 
@@ -168,4 +172,6 @@ fi
 
 # and finally my theme
 source "$HOME/.zsh/plugins/pure/async.zsh"
-source "$HOME/.zsh/plugins/pure/pure.zsh"
+
+promptinit
+prompt pure
