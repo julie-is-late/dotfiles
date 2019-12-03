@@ -49,9 +49,8 @@ alias vscode='code '
 # probably not needed
 alias open='open_command '
 
-# alias for nvidia-xrun
-alias nvstartx='nvidia-xrun'
-alias nstartx='nvstartx'
+# startx on the dgpu :)
+alias nvstartx='startx -- -config nv.xorg.conf'
 
 # -----------------------------------------
 # useless

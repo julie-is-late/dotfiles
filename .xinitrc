@@ -20,21 +20,11 @@ for file in "/etc/X11/Xresources"; do
         xrdb -merge "$file"
     fi
 done
-# non-nvidia specific settings. (I run nv at 136 dpi b/c of my externals)
-if [ -z "$NVIDIA" ]; then
-    file="$HOME/.Xresources"
-    if [ -f "$file" ]; then
-        echo "Loading resource: $file"
-        xrdb -merge "$file"
-    fi
-else
-    file="$HOME/.nvidia-Xresources"
-    if [ -f "$file" ]; then
-        echo "Loading resource: $file"
-        xrdb -merge "$file"
-    fi
+
+if [ -f "$HOME/.Xresources" ]; then
+    echo "Loading resource: $file"
+    xrdb -merge "$file"
 fi
-unset file
 
 # Load keymaps
 for file in "/etc/X11/Xkbmap" "$HOME/.Xkbmap"; do
