@@ -2,6 +2,12 @@
 # jshap's not-so-standard .zshrc
 
 # -----------------------------------------
+### startup
+#
+# ~/.profile (sometimes /etc/zsh/zprofile doesn't load ~/.profile by default)
+emulate sh -c 'source ~/.profile'
+
+# -----------------------------------------
 ### zsh tweaks
 
 autoload -U compinit
@@ -46,12 +52,8 @@ autoload -U zmv
 autoload -U select-word-style
 select-word-style bash
 
-
 # -----------------------------------------
 ### load special dotfiles!
-
-# ~/.profile (sometimes /etc/zsh/zprofile doesn't load ~/.profile by default)
-emulate sh -c 'source ~/.profile'
 
 # my functions
 fpath=(
@@ -75,6 +77,7 @@ fi
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
 
 # -----------------------------------------
 ### ssh-keys

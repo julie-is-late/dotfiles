@@ -6,7 +6,13 @@
 export EDITOR="vim"
 export BROWSER="firefox-nightly"
 
-# specify directory colors
+# LS_COLORS are nice :)
+if [ -f "$HOME/.dir_colors" ]; then
+    eval $(dircolors -b ~/.dir_colors)
+else
+    # don't require stat for permisions check on every ls
+    eval $(dircolors -p | perl -pe 's/^((CAP|S[ET]|O[TR]|M|E)\w+).*/$1 00/' | dircolors -)
+fi
 #eval $(dircolors -b ~/.dir_colors)
 
 # do a bunch of less config stuffs...
@@ -22,6 +28,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+
 # -----------------------------------------
 # path
 
@@ -31,13 +38,12 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # frameworks:
+
 # go
 export GOPATH="$HOME/.cache/go"
 
-#export GOBIN="~/go/bin"
-#export PATH="$PATH:$GOPATH/bin"
-
 # programs:
+
 # android
 #export ANDROID_HOME=/opt/android-sdk
 #export PATH="$PATH:$ANDROID_HOME/tools"
@@ -45,6 +51,7 @@ export GOPATH="$HOME/.cache/go"
 
 # idea
 #export PATH="$PATH:/home/shapirjr/bin/intellij/bin"
+
 
 # -----------------------------------------
 # misc tweaks/fixes
