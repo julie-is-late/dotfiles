@@ -29,6 +29,8 @@
     tool = vimdiff
 [difftool]
     prompt = false
+    # Be able to abort all diffs with `:cq` or `:cquit`
+    trustExitCode = true
 [difftool "vimdiff"]
     cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [difftool "intellij"]
@@ -38,6 +40,6 @@
 
 [alias]
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
-    untrack = "update-index --assume-unchanged"
-    retrack = "update-index --no-assume-unchanged"
+    untrack = "update-index --skip-worktree"
+    retrack = "update-index --no-skip-worktree"
     new-push = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); remote=$(git remote show); git push --set-upstream $remote $branch; }; f"
