@@ -268,6 +268,7 @@ augroup vimrc
     " autocmd FilterWritePost *.glsl,*.vs,*.fs setf glsl
     au BufNewFile,BufRead *.cuh set ft=cuda
     au BufNewFile,BufRead make.inc set ft=make
+    au BufNewFile,BufRead *.rkt set ft=racket
 augroup END
 
 " screen/tmux hax for configuration missmatch on wsl lappy
