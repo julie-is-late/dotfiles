@@ -20,25 +20,36 @@ IMAGE="$(mktemp /tmp/i3lock.XXXXXXXX.png)"
 
 scrot -o "$IMAGE"
 
+# Apply a blur to the image:
+# The goal is to scale to a max y height of n px and then scale back to the 
+# original px height. 
 # Here are some imagemagick blur types
 # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
 
-#convert "$IMAGE" -scale 1% -scale 10000% "$IMAGE"
 
-# best pixelated
-#convert "$IMAGE" -scale 2.5% -scale 4000% "$IMAGE"
+### pixelated
 
-convert "$IMAGE" -scale 3.333333% -scale 3000% "$IMAGE"
-#convert "$IMAGE" -scale 5% -scale 2000% "$IMAGE"
+# 3.3333%
+mogrify -scale "x40" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+# 2.5%
+#mogrify -scale "x30" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+# 5%
+#mogrify -scale "x50" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
 
-# best blurred
-#convert "$IMAGE" -scale 2.5% -resize 4000% "$IMAGE"
-#convert "$IMAGE" -scale 5% -resize 2000% "$IMAGE"
 
-#convert "$IMAGE" -scale 10% -scale 1000% "$IMAGE"
-#convert "$IMAGE" -scale 10% -blur "0x0.25" -scale 1000% "$IMAGE"
-#convert "$IMAGE" -scale 5% -blur "0x1.5" -scale 2000% "$IMAGE"
-#convert "$IMAGE" -scale 5% -blur "0x0.25" -resize 2000% "$IMAGE"
+### blurred
+
+# 2.5%
+#mogrify -scale "x30" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+# 3.3333%
+#mogrify -scale "x40" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+# 5%
+#mogrify -scale "x50" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+
+# more blurred
+#mogrify -scale "x100" -blur "0x1.5" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+#mogrify -scale "x50" -blur "0x1.5" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+#mogrify -scale "x50" -blur "0x0.25" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
 
 # finally, lock
 
