@@ -30,7 +30,7 @@ scrot -o "$IMAGE"
 ### pixelated
 
 # 3.3333%
-mogrify -scale "x40" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+magick mogrify -scale "x40" -scale "$(magick identify -format "%wx%h" "$IMAGE")" "$IMAGE"
 # 2.5%
 #mogrify -scale "x30" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
 # 5%
