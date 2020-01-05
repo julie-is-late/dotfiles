@@ -65,6 +65,7 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.maxColumn": 100,
     "editor.accessibilitySupport": "off",
+    "editor.smoothScrolling": true,
 
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
@@ -157,5 +158,6 @@
     "vim.cursorStylePerMode.visualline": "block-outline",
     "vim.useSystemClipboard": true,
     "vim.neovimPath": "/usr/bin/nvim",
-    "vim.hlsearch": true
+    "vim.hlsearch": true,
+    "vim.vimrc.enable": true
 }
