@@ -245,7 +245,7 @@ function Fuck()
     " other bad garbage that probably just shouldn't make it into code
     let wordlist = wordlist . "\\|stuff\\|lol\\|welp\\|oops"
     " less intense but maybe still bad
-    let wordlist = wordlist . "\\|eff\\(ing\\)\\?\\|balls"
+    let wordlist = wordlist . "\\|eff\\(ing\\|ed\\)\\?\\|balls"
     execute 'match BadWordsMatch /\c\<\(' . wordlist . '\)\>/'
 endfunction
 call SetupCommandAlias("fuck", "call Fuck()")

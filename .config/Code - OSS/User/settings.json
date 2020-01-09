@@ -87,6 +87,7 @@
     "terminal.external.linuxExec": "alacritty",
     "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
     "terminal.external.windowsExec": "C:\\msys64\\mingw64.exe",
+    "terminal.integrated.rendererType": "experimentalWebgl",
 
 
     // extensions
