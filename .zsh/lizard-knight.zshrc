@@ -1,6 +1,9 @@
 #!/bin/zsh
 # jshap's lizard-knight profile
 
+# perforce
+export P4CLIENT=jshapiro-dev-il
+
 # specify directory colors
 eval $(dircolors -b ~/.dir_colors)
 
