@@ -1,0 +1,6 @@
+#!/bin/zsh
+# reload nvidia modules after a driver install
+
+sudo rmmod nvidia_uvm nvidia_drm nvidia_modeset nvidia 2>&-
+nvidia-modprobe -m -u
+sudo modprobe nvidia-drm
