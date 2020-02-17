@@ -18,7 +18,8 @@ if empty(glob(autoload_dir."/plug.vim"))
                 \ .'https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-let color_match = matchstr(&term, '\c256')
+"let color_match = matchstr(&term, '256')
+let color_match = matchstr(&term, '\(256\|alacritty\)')
 if !empty(color_match)
     set t_Co=256
     " FIXME: figure out how to detect truecolor support instead of assuming it
