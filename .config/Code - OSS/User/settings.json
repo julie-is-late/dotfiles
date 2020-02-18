@@ -50,7 +50,7 @@
 
     "editor.fontFamily": "Consolas, 'Droid Sans Mono'",
     "editor.fontLigatures": false,  // ligatures are explicitly BAD
-    "editor.fontSize": 11.5,
+    "editor.fontSize": 12,
     "editor.cursorStyle": "block",
     "editor.renderWhitespace": "boundary",
     "editor.wordWrap": "bounded",

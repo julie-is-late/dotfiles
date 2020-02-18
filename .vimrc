@@ -95,13 +95,19 @@ if has("gui_running")
     let g:neosolarized_italic = 1
 
     colo NeoSolarized
-elseif &term =~ "^xterm\\|rxvt\\|tmux"
+
+" config for smart terminals other than gvim
+elseif &term =~ "^xterm\\|rxvt\\|tmux\\|alacritty"
     " vertical bar for insert
     let &t_SI .= "\<Esc>[5 q"
     " underline for replace
     let &t_SR .= "\<Esc>[3 q"
     " normal blink when leaving
     let &t_EI .= "\<Esc>[1 q"
+
+
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
 endif
 
 " Remove gvim toolbar b/c it's ugly
@@ -271,12 +277,6 @@ augroup vimrc
     au BufNewFile,BufRead make.inc set ft=make
     au BufNewFile,BufRead *.rkt set ft=racket
 augroup END
-
-" screen/tmux hax for configuration missmatch on wsl lappy
-if &term =~ '^tmux'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
 
 " fix ctrl+arrow keys in tmux
 if &term =~ '^screen'
