@@ -105,6 +105,12 @@ elseif &term =~ "^xterm\\|rxvt\\|tmux\\|alacritty"
     " normal blink when leaving
     let &t_EI .= "\<Esc>[1 q"
 
+    " fix ctrl+arrow keys
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+    map <Esc>[B <Down>
 
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
@@ -277,21 +283,6 @@ augroup vimrc
     au BufNewFile,BufRead make.inc set ft=make
     au BufNewFile,BufRead *.rkt set ft=racket
 augroup END
-
-" fix ctrl+arrow keys in tmux
-if &term =~ '^screen'
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-elseif &term =~ '^tmux'
-    " tmux will send xterm-style keys when its xterm-keys option is on
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-    map <Esc>[B <Down>
-endif
 
 """ misc workarounds
 " can't turn off the bell sound in mintty or native wsl ;_;
