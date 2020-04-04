@@ -1,8 +1,8 @@
 #!/bin/bash
 
 rofi \
-    -show windowcd \
-    -modi windowcd \
+    -show window \
+    -modi window \
     -kb-row-down "Alt+Tab,Alt+Down,Down" \
     -kb-row-up "Alt+Up,Up,Alt+ISO_Left_Tab,ISO_Left_Tab" \
     -kb-accept-entry "!Alt-Tab,Return" \
@@ -10,4 +10,4 @@ rofi \
     -selected-row 2 \
     &
 sleep 0.15
-xdotool key Down
+#xdotool key Down

@@ -68,3 +68,4 @@ fi
 export XDG_SESSION_TYPE=x11
 
 exec gnome-session
+#exec i3

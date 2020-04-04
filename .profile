@@ -5,6 +5,7 @@
 
 export EDITOR="vim"
 export BROWSER="firefox-nightly"
+export TERMINAL="alacritty"
 
 # LS_COLORS are nice :)
 if [ -f "$HOME/.dir_colors" ]; then
