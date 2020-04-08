@@ -36,7 +36,7 @@ set $right semicolon
 floating_modifier $mod
 
 # I paid for a nice mouse with nice buttons and I want to use them
-focus_follows_mouse no
+#focus_follows_mouse no
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -77,7 +77,7 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
-bindsym $mod+\ split h
+bindsym $mod+backslash split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -163,27 +163,27 @@ bindsym Control+Shift+Mod1+Escape exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym $left       resize shrink width 10 px or 10 ppt
+  bindsym $down       resize grow height 10 px or 10 ppt
+  bindsym $up         resize shrink height 10 px or 10 ppt
+  bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Left        resize shrink width 10 px or 10 ppt
+  bindsym Down        resize grow height 10 px or 10 ppt
+  bindsym Up          resize shrink height 10 px or 10 ppt
+  bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  # back to normal: Enter or Escape or $mod+r
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -200,10 +200,22 @@ bindsym Control+Shift+l exec bin/lock.sh
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        position       top
-        tray_output    primary
+  status_command i3status
+  position       top
+  tray_output    primary
+  colors {
+    background #073642
+    statusline #839496
+    separator  #839496
+
+    focused_workspace  #002B36 #657B83 #FDF6E3
+    active_workspace   #002B36 #002B36 #93A1A1
+    inactive_workspace #002B36 #002B36 #839496
+    urgent_workspace   #CB4B16 #CB4B16 #93A1A1
+    binding_mode       #CB4B16 #CB4B16 #93A1A1
+  }
 }
+#exec --no-startup-id xfce4-panel --disable-wm-check
 
 ### special gaps shit
 # You can also use any non-zero value if you'd like to have a border
@@ -224,17 +236,40 @@ gaps inner 10
 # Hide edge borders only if there is one window with no gaps
 hide_edge_borders smart_no_gaps
 
+# solarized colorzzzz
+# class                 border  bground text    indicator child_border
+client.focused          #002B36 #657B83 #EEE8D5 #073642   #002B36
+client.focused_inactive #002B36 #073642 #93A1A1 #002B36   #002B36
+client.unfocused        #002B36 #073642 #839496 #002B36   #002B36
+client.urgent           #CB4B16 #CB4B16 #EEE8D5 #CB4B16   #CB4B16
+client.placeholder      #002B36 #073642 #93A1A1 #002B36   #002B36
 
-# COLORZZZZ
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
+client.background       #002B36
 
 # autorun
 exec --no-startup-id feh --bg-fill ~/Pictures/ScreenSaver/Heart\ of\ the\ Mountain.jpg
 exec nm-applet
+
+# gnome
+#exec --no-startup-id gnome-flashback
+#exec --no-startup-id /usr/lib/gsd-xsettings
+#exec_always --no-startup-id gnome-power-manager
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# screenshot
+bindsym Print exec gnome-screenshot -i

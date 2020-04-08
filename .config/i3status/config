@@ -7,8 +7,11 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+  colors = true
+  interval = 5
+  color_good = "#859900"
+  color_degraded = "#b58900"
+  color_bad = "#CB4B16"
 }
 
 order += "wireless _first_"
@@ -21,39 +24,39 @@ order += "battery all"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: %essid"
-        format_down = "W: down"
+  format_up = "W: %essid"
+  format_down = "W: down"
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+  format_up = "E: %ip (%speed)"
+  format_down = "E: down"
 }
 
 battery all {
-        integer_battery_capacity = true
-        format = "%status %percentage %remaining"
+  integer_battery_capacity = true
+  format = "%status %percentage %remaining"
 }
 
 disk "/" {
-        format = "%avail"
+  format = "%avail"
 }
 
 disk "/home" {
-        format = "%avail"
+  format = "%avail"
 }
 
 load {
-        format = "%1min"
+  format = "%1min"
 }
 
 memory {
-        format = "%used | %available"
-        threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+  format = "%used | %available"
+  threshold_degraded = "1G"
+  format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        #format = "%Y-%m-%d %H:%M:%S"
-        format = "%H:%M"
+  #format = "%Y-%m-%d %H:%M:%S"
+  format = "%H:%M"
 }
