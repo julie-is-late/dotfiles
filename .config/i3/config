@@ -111,6 +111,8 @@ bindsym $mod+a focus parent
 # If there are multiple scratchpad windows, this command cycles through them.
 #bindsym $mod+minus scratchpad show
 
+### workspace management
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -152,6 +154,12 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # move workspaces around
 bindsym $mod+Shift+Control+Left  move workspace to output left
 bindsym $mod+Shift+Control+Right move workspace to output right
+
+# move to next workspace
+bindsym $mod+Control+Left  workspace prev_on_output
+bindsym $mod+Control+Right workspace next_on_output
+
+### i3 general
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
