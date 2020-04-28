@@ -73,7 +73,7 @@
     "search.quickOpen.includeSymbols": false,
     "search.smartCase": true,
 
-    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.ignoreTrimWhitespace": true,
 
     "breadcrumbs.enabled": true,
     "breadcrumbs.filePath": "last",
@@ -104,7 +104,7 @@
     ],
 
     "[python]": {},
-    "python.pythonPath": "C:\\Users\\jshapiro\\AppData\\Local\\Programs\\Python\\Python27\\python.exe",
+    "python.pythonPath": "/usr/bin/python3.8",
     "python.workspaceSymbols.ctagsPath": "/usr/bin/ctags",
 
     "terminal.integrated.drawBoldTextInBrightColors": false,

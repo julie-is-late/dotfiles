@@ -27,29 +27,21 @@ scrot -o "$IMAGE"
 # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
 
 
+# 3.3333% = "x30", 2.5% = "x30", 5% = "x50"
 ### pixelated
-
-# 3.3333%
+#magick mogrify -scale "x40" -scale "$(magick identify -format "%wx%h" "$IMAGE")" "$IMAGE"
 magick mogrify -scale "x40" -scale "$(magick identify -format "%wx%h" "$IMAGE")" "$IMAGE"
-# 2.5%
-#mogrify -scale "x30" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
-# 5%
-#mogrify -scale "x50" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
-
 
 ### blurred
-
-# 2.5%
-#mogrify -scale "x30" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
-# 3.3333%
-#mogrify -scale "x40" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
-# 5%
-#mogrify -scale "x50" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+#magick mogrify -scale "x40" -resize "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
 
 # more blurred
-#mogrify -scale "x100" -blur "0x1.5" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
-#mogrify -scale "x50" -blur "0x1.5" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
-#mogrify -scale "x50" -blur "0x0.25" -scale "x$(magick identify -format "%h" "$IMAGE")" "$IMAGE"
+#-scale "x100" -blur "0x1.5" -scale
+#-scale "x50" -blur "0x1.5" -scale
+#-scale "x50" -blur "0x0.25" -scale
+
+# notes about things that don't work:
+# -sample -> creates just uniform noise
 
 # finally, lock
 
