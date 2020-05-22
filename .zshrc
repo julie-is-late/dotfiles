@@ -20,32 +20,66 @@ HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=5000
 
-setopt sharehistory
-setopt appendhistory
+# import new commands from the history file also in other zsh-session
+setopt share_history
+setopt append_history
 
+# fuck you beep
 unsetopt beep
 
 setopt interactive_comments     # allow in-repl comments starting w/ #
-
-setopt complete_in_word         # allow completion from within a word/phrase
+setopt completeinword           # allow completion from within a word/phrase
 setopt list_ambiguous           # complete as much as it can until ambiguous
 setopt auto_cd                  # auto cd when dir is given w/ no command
 setopt correct                  # spelling correction for commands
 setopt noflowcontrol            # turn off ctrl+s freezing, ctrl+q unfreezing
 stty -ixon -ixoff 2>/dev/null   # no, really, please no flow control
+setopt COMPLETE_ALIASES         # autocompletion of cli switches for aliases
+setopt hash_list_all            # hash everything before completion
 
-# TODO: clean this section up/decide what's trash
-#setopt hash_list_all    # hash everything before completion
-#setopt always_to_end    # when compl. from middle of word, move cursor to end
+# completion caching, use rehash to clear
+zstyle ':completion::complete:*' use-cache on
+# case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+# colorz!
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# describe completion type
+zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'
+# separate matches into groups
+zstyle ':completion:*:matches'         group 'yes'
+zstyle ':completion:*'                 group-name ''
+# menu if nb items > 2
+zstyle ':completion:*' menu select
+# Ignore completion functions for commands you don't have:
+zstyle ':completion::(^approximate*):*:functions' ignored-patterns '_*'
 
-zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       # colorz !
-zstyle ':completion:*' rehash true
-zstyle ':completion:*' menu select                          # menu if nb items > 2
-#zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
-#zstyle ':completion:*::::' completer _expand _complete _ignored _approximate # list of completers to use
+# complete manual by their section
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
+
+# set format for failing to match
+#zstyle ':completion:*:warnings'        format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d'
+## ???
+#zstyle ':completion:*:messages'        format '%d'
+#zstyle ':completion:*:options'         auto-description '%d'
+## describe options in full
+#zstyle ':completion:*:options'         description 'yes'
+## provide verbose completion information
+#zstyle ':completion:*'                 verbose true
+
+# lifted from grml
+zstyle -e ':completion:*' completer '
+    if [[ $_last_try != "$HISTNO$BUFFER$CURSOR" ]] ; then
+        _last_try="$HISTNO$BUFFER$CURSOR"
+        reply=(_complete _match _ignored _prefix _files)
+    else
+        if [[ $words[1] == (rm|mv) ]] ; then
+            reply=(_complete _files)
+        else
+            reply=(_oldlist _expand _complete _ignored _correct _approximate _files)
+        fi
+    fi'
 
 # zsh moving
 autoload -U zmv
@@ -81,6 +115,11 @@ fi
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# zsh profiling
+function profile () {
+    ZSH_PROFILE_RC=1 zsh "$@"
+}
 
 
 # -----------------------------------------
@@ -128,7 +167,7 @@ PURE_PROMPT_HOSTNAME="$HOST"
 
 # keyboard shortcuts bundle needs to be loaded first (from oh-my-zsh)
 # other useful: archlinux colored-man-pages command-not-found docker git
-source "$HOME/.zsh/plugins/key-bindings.zsh"
+#source "$HOME/.zsh/plugins/key-bindings.zsh"
 
 # use antibody if needed
 if [[ ! -a "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
@@ -170,7 +209,56 @@ else # manually load some plugins :)
     source /usr/share/fzf/completion.zsh
 fi
 
-# and finally my theme
+
+# -----------------------------------------
+### key bindings!
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+key[Control-Left]="${terminfo[kLFT5]}"
+key[Control-Right]="${terminfo[kRIT5]}"
+
+# setup key accordingly
+[[ -n "${key[Home]}"          ]] && bindkey -- "${key[Home]}"          beginning-of-line
+[[ -n "${key[End]}"           ]] && bindkey -- "${key[End]}"           end-of-line
+[[ -n "${key[Insert]}"        ]] && bindkey -- "${key[Insert]}"        overwrite-mode
+[[ -n "${key[Backspace]}"     ]] && bindkey -- "${key[Backspace]}"     backward-delete-char
+[[ -n "${key[Delete]}"        ]] && bindkey -- "${key[Delete]}"        delete-char
+[[ -n "${key[Up]}"            ]] && bindkey -- "${key[Up]}"            up-line-or-history
+[[ -n "${key[Down]}"          ]] && bindkey -- "${key[Down]}"          down-line-or-history
+[[ -n "${key[Left]}"          ]] && bindkey -- "${key[Left]}"          backward-char
+[[ -n "${key[Right]}"         ]] && bindkey -- "${key[Right]}"         forward-char
+[[ -n "${key[PageUp]}"        ]] && bindkey -- "${key[PageUp]}"        beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"      ]] && bindkey -- "${key[PageDown]}"      end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}"     ]] && bindkey -- "${key[Shift-Tab]}"     reverse-menu-complete
+[[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
+[[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+    autoload -Uz add-zle-hook-widget
+    function zle_application_mode_start { echoti smkx }
+    function zle_application_mode_stop { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi
+
+# -----------------------------------------
+# and finally: load my theme!
 source "$HOME/.zsh/plugins/pure/async.zsh"
 
 promptinit

@@ -9,10 +9,10 @@ export TERMINAL="alacritty"
 
 # LS_COLORS are nice :)
 if [ -f "$HOME/.dir_colors" ]; then
-    eval $(dircolors -b ~/.dir_colors)
+    eval "$(dircolors -b ~/.dir_colors)"
 else
     # don't require stat for permisions check on every ls
-    eval $(dircolors -p | perl -pe 's/^((CAP|S[ET]|O[TR]|M|E)\w+).*/$1 00/' | dircolors -)
+    eval "$(dircolors -p | perl -pe 's/^((CAP|S[ET]|O[TR]|M|E)\w+).*/$1 00/' | dircolors -)"
 fi
 #eval $(dircolors -b ~/.dir_colors)
 
