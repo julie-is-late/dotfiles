@@ -43,9 +43,11 @@
     "files.autoSave": "off",
     "files.eol": "\n",
     "files.insertFinalNewline": true,
-    "files.autoGuessEncoding": true,
+    "files.autoGuessEncoding": false,
+    "files.encoding": "utf8",
     "files.associations": {
-        "*.rkt": "racket"
+        "*.rkt": "racket",
+        //"*.poly.pm": "racket"
     },
 
     "editor.fontFamily": "Consolas, 'Droid Sans Mono'",
@@ -95,6 +97,10 @@
 
     "[cpp]": {
         // "editor.quickSuggestions": false
+    },
+    "[racket]": {
+      "files.encoding": "utf8",
+      "files.autoGuessEncoding": false,
     },
     // "C_Cpp.intelliSenseEngine": "Default",
 
