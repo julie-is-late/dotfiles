@@ -45,3 +45,5 @@
     new-push = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); remote=$(git remote show); git push --set-upstream $remote $branch; }; f"
 [advice]
     addIgnoredFile = false
+[pull]
+	rebase = true
