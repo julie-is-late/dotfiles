@@ -166,5 +166,6 @@
     "vim.useSystemClipboard": true,
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.hlsearch": true,
-    "vim.vimrc.enable": true
+    "vim.vimrc.enable": true,
+    "telemetry.enableCrashReporter": false
 }
