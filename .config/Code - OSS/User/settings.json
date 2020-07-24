@@ -167,5 +167,6 @@
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.hlsearch": true,
     "vim.vimrc.enable": true,
-    "telemetry.enableCrashReporter": false
+    "telemetry.enableCrashReporter": false,
+    "python.showStartPage": false
 }
