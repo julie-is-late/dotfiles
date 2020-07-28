@@ -7,6 +7,8 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore
+[init]
+    defaultbranch = main
 
 [commit]
     #gpgsign = true
