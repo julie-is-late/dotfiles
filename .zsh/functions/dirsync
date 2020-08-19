@@ -9,8 +9,8 @@ host=${1} && shift
 echo "\`:cq\` to halt xargs"
 
 {
-    rsync -nvrca ${dir1}/ ${host}:${dir2// /\\ }/ --exclude='/.git' --filter="dir-merge,- .gitignore" $@ && \
-    rsync -nvrca --ignore-existing ${host}:${dir2// /\\ }/ ${dir1}/ --exclude='/.git'  --filter="dir-merge,- .gitignore" $@
+    rsync -nvrca --protect-args ${dir1}/ ${host}:${dir2}/ --exclude='/.git' --filter="dir-merge,- .gitignore" $@ && \
+    rsync -nvrca --protect-args --ignore-existing ${host}:${dir2}/ ${dir1}/ --exclude='/.git'  --filter="dir-merge,- .gitignore" $@
 } | \
     grep -v -E '/$|(sending|receiving) incremental file list|^created directory |^sent |^total size is' | \
     xargs -i --interactive -- bash -c "</dev/tty vimdiff '${dir1}/{}' 'rsync://${host}:${dir2// /\\ }/{}' || exit 255"
