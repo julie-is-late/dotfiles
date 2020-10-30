@@ -3,3 +3,4 @@
 # environemnt variables which are defined at the DM level for seme
 
 #export WINIT_HIDPI_FACTOR=2.0
+xrandr --output DP-0.1.8 --primary --output DP-0.8 --right-of DP-0.1.8
