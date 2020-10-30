@@ -7,3 +7,5 @@
 #    #export QT_SCALE_FACTOR=1
 #    :
 #fi
+
+export FEH_BG="$HOME/Pictures/ScreenSaver/Heart\ of\ the\ Mountain.jpg"

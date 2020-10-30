@@ -255,7 +255,7 @@ client.placeholder      #002B36 #073642 #93A1A1 #002B36   #002B36
 client.background       #002B36
 
 # autorun
-exec --no-startup-id feh --bg-fill ~/Pictures/ScreenSaver/Heart\ of\ the\ Mountain.jpg
+exec --no-startup-id "feh --bg-fill $FEH_BG"
 exec nm-applet
 
 # gnome
@@ -283,6 +283,7 @@ bindsym Print exec gnome-screenshot -i
 
 # compositor
 exec --no-startup-id "picom -c --config ~/.config/picom/picom.conf"
+exec --no-startup-id "redshift-gtk"
 
 # force special settings for windows
 

@@ -67,5 +67,8 @@ fi
 
 export XDG_SESSION_TYPE=x11
 
-exec gnome-session
-#exec i3
+
+# i just can't make up my damn mind
+#exec gnome-session
+exec i3
+#exec cinnamon-session
