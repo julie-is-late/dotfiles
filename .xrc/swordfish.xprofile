@@ -8,4 +8,9 @@
 #    :
 #fi
 
-export FEH_BG="$HOME/Pictures/ScreenSaver/Heart\ of\ the\ Mountain.jpg"
+# i3 background
+export FEH_BG=$HOME/Pictures/ScreenSaver/Heart_of_the_Mountain.jpg
+#export FEH_BG="$HOME/Pictures/ScreenSaver/complete-8.png"
+
+# set screen layout
+xrandr --output DP-1.2.1.8 --left-of DP-1.2.8 --output DP-1.2.8 --primary
