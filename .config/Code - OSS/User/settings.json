@@ -75,7 +75,7 @@
     "search.quickOpen.includeSymbols": false,
     "search.smartCase": true,
 
-    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.ignoreTrimWhitespace": false,
 
     "breadcrumbs.enabled": true,
     "breadcrumbs.filePath": "last",
@@ -168,5 +168,10 @@
     "vim.hlsearch": true,
     "vim.vimrc.enable": true,
     "telemetry.enableCrashReporter": false,
-    "python.showStartPage": false
+    "python.showStartPage": false,
+    "julia.enableTelemetry": false,
+    "julia.execution.codeInREPL": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ]
 }
