@@ -296,3 +296,4 @@ for_window [class="jetbrains-.*" title="win0"] floating enable border none
 
 for_window [class="Slack"] move window to scratchpad
 for_window [class="Spotify"] move window to scratchpad
+for_window [class="Signal"] move window to scratchpad
