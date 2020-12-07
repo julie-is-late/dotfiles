@@ -291,9 +291,12 @@ exec --no-startup-id "spotify"
 
 # jetbrains toolbox tray app
 for_window [class="jetbrains-toolbox" instance="JetBrains Toolbox"] floating enable
-# intellij startup
-for_window [class="jetbrains-.*" title="win0"] floating enable border none
+for_window [class="jetbrains-.*" title="^win0$"] floating enable border none  # startup window
+for_window [class="org.remmina.Remmina" title="^Remmina Remote Desktop Client$"] floating enable
 
-for_window [class="Slack"] move window to scratchpad
-for_window [class="Spotify"] move window to scratchpad
-for_window [class="Signal"] move window to scratchpad
+# scratchpad
+# move spotify but not any file dialogs it opens
+for_window [class="Spotify" title="^(?!spotify$)"] move window to scratchpad
+# same but for slack
+for_window [class="Slack" title="^Slack |.*$"] move window to scratchpad
+for_window [class="Signal" title="^Signal$"] move window to scratchpad

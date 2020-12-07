@@ -17,4 +17,4 @@ export FEH_BG=$HOME/Pictures/ScreenSaver/celeste/Heart_of_the_Mountain.jpg
 #xrandr --output DP-1.1 --primary --output DP-1.2 --right-of DP-1.1
 
 # dp-1.3 is secretly uses an hdmi cable
-xrandr --output DP-1.3 --primary --output DP-1.2 --right-of DP-1.3
+xrandr --output DP-1.3 --primary --output DP-1.2.8 --right-of DP-1.3
