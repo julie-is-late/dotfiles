@@ -33,6 +33,9 @@ alias mmv='noglob zmv -W'
 [ -x "$(command -v thefuck)" ] && eval $(thefuck --alias)
 alias spellcheck="aspell check "
 
+# I always forget what it is
+alias updatepkgsums="updpkgsums "
+
 # dictionary?
 alias def="/usr/bin/sdcv --color --utf8-output --utf8-input"
 # (I didn't realize i had so much language stuff)
