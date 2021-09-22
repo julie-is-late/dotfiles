@@ -28,7 +28,6 @@
     "workbench.statusBar.feedback.visible": false,
 
     "window.restoreWindows": "all",
-    "window.zoomLevel": 0,
     "window.menuBarVisibility": "hidden",
     "window.title": "${activeEditorShort}${separator}${rootName}${separator}vscode",
     "window.titleBarStyle": "native",
@@ -102,6 +101,9 @@
       "files.encoding": "utf8",
       "files.autoGuessEncoding": false,
     },
+    "[pollen-markup]": {
+        "editor.autoClosingBrackets": "never"
+    },
     // "C_Cpp.intelliSenseEngine": "Default",
 
     "git.ignoredRepositories": [
@@ -173,5 +175,10 @@
     "julia.execution.codeInREPL": true,
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt"
-    ]
+    ],
+    "explorer.confirmDelete": false,
+    "julia.enableCrashReporter": false,
+    "pico8.executablePath": "/home/jshap/bin/pico-8",
+    "pico8vscodeeditor.pico8fullpath": "\"/home/jshap/bin/pico-8/pico8\"",
+    "python.showStartPage": false,
 }

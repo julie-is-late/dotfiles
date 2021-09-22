@@ -1,0 +1,5 @@
+configuration {
+	dpi: 112;
+	theme: "solarized";
+	matching: fuzzy;
+}

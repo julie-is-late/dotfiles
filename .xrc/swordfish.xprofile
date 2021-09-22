@@ -13,8 +13,4 @@ export FEH_BG=$HOME/Pictures/ScreenSaver/celeste/Heart_of_the_Mountain.jpg
 #export FEH_BG="$HOME/Pictures/ScreenSaver/complete-8.png"
 
 # set screen layout
-# dp
-#xrandr --output DP-1.1 --primary --output DP-1.2 --right-of DP-1.1
-
-# dp-1.3 is secretly uses an hdmi cable
-xrandr --output DP-1.3 --primary --output DP-1.2.8 --right-of DP-1.3
+xrandr --output DP-1 --mode 3440x1440 --rate 120.00 --primary --output DP-0.8 --right-of DP-1 --auto

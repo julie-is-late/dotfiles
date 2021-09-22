@@ -28,8 +28,8 @@
 
 /* Shrink sidebar until hovered, when using Tree Style Tab. */
 :root {
-    --thin-tab-width: 30px;
-    --wide-tab-width: 200px;
+    --thin-tab-width: 40px;
+    --wide-tab-width: 260px;
 }
 #sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
     min-width: var(--wide-tab-width) !important;
@@ -37,12 +37,12 @@
 }
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
     position: relative !important;
-    transition: all 100ms !important;
+    transition: all 50ms ease !important;
     min-width: var(--thin-tab-width) !important;
     max-width: var(--thin-tab-width) !important;
 }
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
-    transition: all 100ms !important;
+    transition: all 50ms ease !important;
     min-width: var(--wide-tab-width) !important;
     max-width: var(--wide-tab-width) !important;
     margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;

@@ -15,8 +15,9 @@ general {
 }
 
 order += "wireless _first_"
-#order += "ethernet _first_"
+order += "ethernet _first_"
 order += "battery all"
+order += "cpu_temperature 1"
 #order += "disk /"
 #order += "disk /home"
 #order += "load"
@@ -36,6 +37,12 @@ ethernet _first_ {
 battery all {
   integer_battery_capacity = true
   format = "%status %percentage %remaining"
+}
+
+cpu_temperature 1 {
+        format = "T: %degrees °C"
+        #max_threshold = 80
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
 }
 
 disk "/" {

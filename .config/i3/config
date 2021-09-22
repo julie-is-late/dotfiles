@@ -45,6 +45,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec ~/bin/rofi/run.sh
 bindsym Mod1+F2 exec ~/bin/rofi/run.sh
 bindsym Mod1+Tab exec ~/bin/rofi/switch.sh
+bindsym $mod+g exec ~/bin/rofi/find.sh
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -282,9 +283,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym Print exec gnome-screenshot -i
 
 # compositor
-exec --no-startup-id "picom -c --config ~/.config/picom/picom.conf"
-exec --no-startup-id "redshift-gtk"
-exec --no-startup-id "slack"
+#exec --no-startup-id "picom -c --config ~/.config/picom/picom.conf"
+#exec --no-startup-id "slack"
 exec --no-startup-id "spotify"
 
 # force special settings for windows
@@ -295,13 +295,17 @@ for_window [class="jetbrains-.*" title="^win0$"] floating enable border none  # 
 for_window [class="org.remmina.Remmina" title="^Remmina Remote Desktop Client$"] floating enable
 for_window [class="Steam" title="^Steam Guard .*"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
-for_window [title="\| Microsoft Teams$"] floating enable
+#for_window [title="\| Microsoft Teams$"] floating enable
+for_window [class="Microsoft Teams - Preview"] floating enable
 for_window [class="gksqt" title="GKS QtTerm"] floating enable
 
 # scratchpad
 # move spotify but not any file dialogs it opens
 for_window [class="Spotify" title="^(?!spotify$)"] move window to scratchpad
 # same but for slack
-for_window [class="Slack" title="^Slack |.*$" window_role="^(?!GtkFileChooserDialog$)"] move window to scratchpad
+#for_window [class="Slack" title="^Slack \|.*NVIDIA Corporation.*$" window_role="^(?!GtkFileChooserDialog$)"] move window to scratchpad
+for_window [title="^Slack \|.*NVIDIA Corporation.*$" window_role="^(?!GtkFileChooserDialog$)"] move window to scratchpad
 for_window [class="Signal" title="^Signal$"] move window to scratchpad
 for_window [class="discord" title="^Discord$"] move window to scratchpad
+for_window [title="\| Microsoft Teams" window_role="^(?!GtkFileChooserDialog$)"] move window to scratchpad
+#for_window [title="Slack \| .* \| NVIDIA Corporation — Firefox Nightly"] move window to scratchpad

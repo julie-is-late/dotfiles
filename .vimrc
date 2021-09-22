@@ -53,6 +53,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'wlangstroth/vim-racket'
+Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end()
 
