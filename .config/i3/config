@@ -123,7 +123,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5:tmux"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -311,6 +311,7 @@ for_window [class="gksqt" title="GKS QtTerm"] floating enable
 for_window [class="Spotify" title="^(?!spotify$)"] move window to workspace $ws9
 for_window [class="code-oss" title="- vscode" window_role="^(?!GtkFileChooserDialog$)"] move window to workspace $ws4
 for_window [class="firefox-nightly" title="- Outlook — Firefox Nightly" window_role="^(?!GtkFileChooserDialog$)"] move window to workspace $ws2
+for_window [class="Alacritty" title=".*tmux.*"] move window to workspace $ws5
 
 # scratchpad
 #for_window [class="Spotify" title="^(?!spotify$)"] move window to scratchpad
