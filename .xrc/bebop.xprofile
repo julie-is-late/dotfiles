@@ -3,9 +3,11 @@
 # environemnt variables which are defined at the DM level for bebop
 
 # for alacritty
-export WINIT_HIDPI_FACTOR=2.0
+#export WINIT_HIDPI_FACTOR=2.0
 
-## scale gtk
-#export GDK_SCALE=2
-## scale gtk fonts back
-#export GDK_DPI_SCALE=0.5
+# i3 background
+export FEH_BG=$HOME/Pictures/Pictures/ScreenSaver/celeste/complete-8.png
+
+if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
+    xrandr --output DP-1-1-8 --auto --primary --output DP-1-1-1-8 --right-of DP-1-1-8 --auto --output eDP-1 --off
+fi

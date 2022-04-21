@@ -21,7 +21,7 @@ SAVEHIST=10000
 HISTSIZE=5000
 
 # import new commands from the history file also in other zsh-session
-#setopt share_history
+setopt share_history
 setopt append_history
 
 # fuck you beep
