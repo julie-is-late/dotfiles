@@ -1,7 +1,7 @@
 [user]
     email = <replace_me>
     name = Julie Shapiro
-    #signingkey = 44E58546
+    #signingkey = 3BCEBBA21371B706
 [push]
     default = simple
 [core]
@@ -27,6 +27,11 @@
 [mergetool "vscode"]
     cmd = code --wait \"$MERGED\"
 
+[pull]
+    rebase = true
+[rebase]
+    autoStash = true
+
 [diff]
     tool = vimdiff
 [difftool]
@@ -40,12 +45,17 @@
 [difftool "vscode"]
     cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
 
+[advice]
+    addIgnoredFile = false
+
 [alias]
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
     untrack = "update-index --skip-worktree"
     retrack = "update-index --no-skip-worktree"
     new-push = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); remote=$(git remote show); git push --set-upstream $remote $branch; }; f"
-[advice]
-    addIgnoredFile = false
-[pull]
-	rebase = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

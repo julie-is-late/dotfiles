@@ -292,7 +292,7 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 #exec --no-startup-id "picom -c --config ~/.config/picom/picom.conf"
 #exec --no-startup-id "slack"
 #exec --no-startup-id "teams"
-exec --no-startup-id "spotify"
+#exec --no-startup-id "spotify"
 
 # force special settings for windows
 
