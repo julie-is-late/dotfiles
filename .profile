@@ -60,3 +60,7 @@ export GOPATH="$HOME/.cache/go"
 # GTK - https://wiki.archlinux.org/index.php/GTK%2B#Suppress_warning_about_accessibility_bus
 export NO_AT_BRIDGE=1
 
+# enable firefox on wayland
+if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+    export MOZ_ENABLE_WAYLAND=1
+fi
