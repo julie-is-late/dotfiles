@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# environemnt variables which are defined at the DM level for empathy
+
+# i3 background
+export FEH_BG=$HOME/Pictures/ScreenSaver/celeste/Heart_of_the_Mountain.jpg
+#export FEH_BG="$HOME/Pictures/ScreenSaver/complete-8.png"
+
+WINIT_X11_SCALE_FACTOR=1
+
+# set screen layout
+if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
+    # home-ish
+    #xrandr --output DP-1 --mode 3440x1440 --rate 120.00 --primary --output DP-0.8 --right-of DP-1 --auto
+    # work setup
+    #xrandr --output DP-1-1-8 --auto --primary --output DP-1-1-1-8 --right-of DP-1-1-8 --auto --output eDP-1 --off
+fi

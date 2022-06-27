@@ -6,3 +6,7 @@ export MOZ_USE_XINPUT2=1
 
 # per host settings like dpi
 [ -f "$HOME/.xrc/`hostname`.xprofile" ] && . "$HOME/.xrc/`hostname`.xprofile"
+
+# start keyring
+eval $(/usr/bin/gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK

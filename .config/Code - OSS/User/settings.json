@@ -93,6 +93,7 @@
 
     // extensions
     "extensions.showRecommendationsOnlyOnDemand": true,
+    "extensions.ignoreRecommendations": true,
 
     "[cpp]": {
         // "editor.quickSuggestions": false
@@ -170,6 +171,7 @@
     "vim.hlsearch": true,
     "vim.vimrc.enable": true,
     "telemetry.enableCrashReporter": false,
+    "telemetry.telemetryLevel": "off",
     "python.showStartPage": false,
     "julia.enableTelemetry": false,
     "julia.execution.codeInREPL": true,
@@ -182,9 +184,7 @@
     "julia.NumThreads": 2,
     "pico8.executablePath": "/home/jshap/bin/pico-8",
     "pico8vscodeeditor.pico8fullpath": "\"/home/jshap/bin/pico-8/pico8\"",
-    "python.showStartPage": false,
     "workbench.editor.untitled.hint": "hidden",
-    "vim.enableNeovim": true,
     "gitlens.showWelcomeOnInstall": false,
     "gitlens.showWhatsNewAfterUpgrades": false,
     "gitlens.currentLine.pullRequests.enabled": false,
@@ -236,4 +236,5 @@
     "editor.unicodeHighlight.allowedCharacters": {
         "σ": true
     },
+    //"window.menuBarVisibility": "toggle",
 }
