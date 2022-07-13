@@ -201,6 +201,8 @@ set clipboard=unnamedplus
 
 " tab complete into the statusbar
 set wildmenu
+set wildoptions=pum,fuzzy
+set wildignorecase
 
 " diffopt
 if has("patch-8.1.0360")
