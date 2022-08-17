@@ -18,7 +18,17 @@ fi
 
 # do a bunch of less config stuffs...
 # like, don't ring the bell at EOF in less. it's annoying.
-export LESS="-eFiQRX"
+# e = quit on 2x eof
+# F = tail
+# i = ignore search case
+# Q = quiet / nobell
+# R = color / nostrip
+# X = leave output on terminal
+# N = line numbers
+# S = chop long lines
+# M = more
+# K = quit on sigint
+export LESS="-FiQRX"
 export SYSTEMD_LESS="-FRSXMKQi"
 
 # if running bash
