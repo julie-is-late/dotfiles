@@ -213,20 +213,21 @@ endif
 "turn on statusline
 set laststatus=2
 "custom statusline
-set statusline=\ %F\      "filename
+set statusline=\ [%n]
+set statusline+=\ %F\      "filename
 "misc info
 set statusline+=%h      "help file flag
 set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=\ %m    "modified flag
+
 set statusline+=%=      "left/right separator
+
 "encoding info
-set statusline+=[       "
-set statusline+=%{strlen(&fenc)?&fenc:'none'} "file encoding
-"set statusline+=,%{&ff} "file format
-set statusline+=]       "
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}] "file encoding
+"set statusline+=\ %{&ff} "file format
 "cursor location info
-set statusline+=%3l     "cursor line
+set statusline+=\ %3l     "cursor line
 set statusline+=:%c     "cursor column
 set statusline+=/%L     "total lines
 set statusline+=\ %P\   "percent through file

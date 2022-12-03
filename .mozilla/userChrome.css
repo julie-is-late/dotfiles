@@ -7,6 +7,10 @@
     visibility: collapse !important;
 }
 
+#TabsToolbar {
+  display: none;
+}
+
 /* Sidebar min and max width removal */
 #sidebar {
     max-width: none !important;
