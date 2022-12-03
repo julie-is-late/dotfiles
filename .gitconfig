@@ -7,6 +7,7 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore
+    pager = delta
 [init]
     defaultbranch = main
 
@@ -16,8 +17,15 @@
     #autosetupmerge = always
     #autosetuprebase = always
 
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false
+
 [merge]
     tool = vimdiff
+    conflictstyle = diff3
 [mergetool "vimdiff"]
     conflictstyle = diff3
 [mergetool "gvimdiff"]
@@ -33,6 +41,7 @@
     autoStash = true
 
 [diff]
+    colorMoved = default
     tool = vimdiff
 [difftool]
     prompt = false
@@ -53,6 +62,12 @@
     untrack = "update-index --skip-worktree"
     retrack = "update-index --no-skip-worktree"
     new-push = "!f() { branch=$(git rev-parse --abbrev-ref HEAD); remote=$(git remote show); git push --set-upstream $remote $branch; }; f"
+
+[lfs]
+    contenttype = 0
+
+[mailmap]
+    file = ~/.git-mailmap
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
