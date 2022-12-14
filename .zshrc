@@ -134,7 +134,7 @@ if [[ -z "$SSH_CONNECTION" ]]; then
     local add-keys() {
         setopt localoptions localtraps
         trap 'return' INT
-        ssh-add
+        ssh-add ~/.ssh/*id_ed25519
     }
 
     # ensure it's alive and kicking
