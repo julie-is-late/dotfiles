@@ -46,7 +46,7 @@
     "files.encoding": "utf8",
     "files.associations": {
         "*.rkt": "racket",
-        //"*.poly.pm": "racket"
+        "*.poly.pm": "plaintext"
     },
 
     "editor.fontFamily": "Consolas, 'Droid Sans Mono'",
@@ -66,7 +66,7 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.maxColumn": 100,
     "editor.accessibilitySupport": "off",
-    "editor.smoothScrolling": true,
+    "editor.smoothScrolling": false,
 
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
@@ -268,5 +268,6 @@
     "gitlens.views.worktrees.pullRequests.showForCommits": false,
     "gitlens.views.contributors.pullRequests.enabled": false,
     "gitlens.views.contributors.pullRequests.showForCommits": false,
+    "julia.executablePath": "/home/julie/bin/juliaa",
     //"window.menuBarVisibility": "toggle",
 }

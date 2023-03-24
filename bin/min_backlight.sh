@@ -16,9 +16,9 @@ if [ "$current" == "true" ]; then
     gsettings set $key false
 else
     # filter values
-    gsettings set org.gnome.desktop.a11y.magnifier brightness-red -0.55
-    gsettings set org.gnome.desktop.a11y.magnifier brightness-green -0.55
-    gsettings set org.gnome.desktop.a11y.magnifier brightness-blue -0.55
+    gsettings set org.gnome.desktop.a11y.magnifier brightness-red -0.50
+    gsettings set org.gnome.desktop.a11y.magnifier brightness-green -0.50
+    gsettings set org.gnome.desktop.a11y.magnifier brightness-blue -0.50
     gsettings set org.gnome.desktop.a11y.magnifier color-saturation 0.10
     # disable zoom
     gsettings set org.gnome.desktop.a11y.magnifier mag-factor 1.0

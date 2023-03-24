@@ -18,10 +18,25 @@
     #autosetuprebase = always
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
 [delta]
+    line-numbers = true
+    features = decorations true-color
     navigate = true    # use n and N to move between diff sections
     light = false
+    #syntax-theme = Coldark-Dark
+    syntax-theme = Solarized (dark)
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
 
 [merge]
     tool = vimdiff
