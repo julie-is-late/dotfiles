@@ -76,3 +76,5 @@ if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     export QT_QPA_PLATFORM=wayland
     export GDK_BACKEND=wayland
 fi
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
