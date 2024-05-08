@@ -114,7 +114,8 @@ elseif &term =~ "^xterm\\|rxvt\\|tmux\\|alacritty"
     map <Esc>[B <Down>
 
     " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+    "set ttymouse=xterm2
+    set ttymouse=sgr
 endif
 
 " Remove gvim toolbar b/c it's ugly

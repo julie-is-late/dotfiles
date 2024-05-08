@@ -43,9 +43,6 @@ alias def="/usr/bin/sdcv --color --utf8-output --utf8-input"
 # get current ip
 alias ipget="ifconfig | grep 'inet\s' | awk '{print \$2}'"
 
-# pwgen is gr8
-alias pass="pwgen -0A"
-
 # vscode is gr8
 alias vscode='code '
 
@@ -63,3 +60,9 @@ alias watchy='noglob mpv --gpu-context=wayland'
 
 # rsync dev folders
 alias gsync='rsync --exclude='/.git' --filter="dir-merge,- .gitignore" '
+
+# rg keeps reading my home folder's .gitignore
+#alias rg='rg --no-ignore-parent'
+alias rg='rg --no-ignore-vcs'
+
+alias yay='LESS=SR yay'

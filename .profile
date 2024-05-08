@@ -63,6 +63,7 @@ export GOPATH="$HOME/.cache/go"
 # idea
 #export PATH="$PATH:/home/shapirjr/bin/intellij/bin"
 
+#export PATH="$PATH:/usr/local/cuda-12.3/bin"
 
 # -----------------------------------------
 # misc tweaks/fixes

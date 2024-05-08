@@ -184,7 +184,6 @@
     "julia.NumThreads": 2,
     "pico8.executablePath": "/home/jshap/bin/pico-8",
     "pico8vscodeeditor.pico8fullpath": "\"/home/jshap/bin/pico-8/pico8\"",
-    "workbench.editor.untitled.hint": "hidden",
     "gitlens.showWelcomeOnInstall": false,
     "gitlens.showWhatsNewAfterUpgrades": false,
     "gitlens.currentLine.pullRequests.enabled": false,
@@ -269,5 +268,23 @@
     "gitlens.views.contributors.pullRequests.enabled": false,
     "gitlens.views.contributors.pullRequests.showForCommits": false,
     "julia.executablePath": "/home/julie/bin/juliaa",
+    "workbench.editor.empty.hint": "hidden",
     //"window.menuBarVisibility": "toggle",
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "gitlens.graph.scrollMarkers.additionalTypes": [
+        "localBranches",
+        "stashes",
+        "remoteBranches"
+    ],
+    "gitlens.views.commitDetails.files.layout": "tree",
+    "python.languageServer": "Jedi",
+    "python.analysis.enablePytestSupport": false,
+    "window.newWindowDimensions": "offset",
+    "debug.console.fontSize": 12,
+    "chat.editor.fontSize": 12,
+    "scm.inputFontSize": 12,
+    "workbench.activityBar.location": "top"
 }
