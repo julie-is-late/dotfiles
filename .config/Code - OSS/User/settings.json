@@ -280,11 +280,12 @@
         "remoteBranches"
     ],
     "gitlens.views.commitDetails.files.layout": "tree",
-    "python.languageServer": "Jedi",
+    "python.languageServer": "Pylance",
     "python.analysis.enablePytestSupport": false,
     "window.newWindowDimensions": "offset",
     "debug.console.fontSize": 12,
     "chat.editor.fontSize": 12,
     "scm.inputFontSize": 12,
-    "workbench.activityBar.location": "top"
+    "workbench.activityBar.location": "top",
+    "python.analysis.inlayHints.functionReturnTypes": true
 }

@@ -16,6 +16,8 @@ alias la='ls -lha'
 
 alias lol='lolcat'
 
+alias sudo='sudo '
+
 # -----------------------------------------
 # environment stuff
 
